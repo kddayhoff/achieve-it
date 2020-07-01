@@ -1,5 +1,5 @@
 {
-  "name": "achieve-it",
+  "name": "achieve-2-believe",
   "version": "1.0.0",
   "description": "A five year planner and objective and goal setter",
   "main": "server.js",
@@ -23,9 +23,12 @@
   },
   "homepage": "https://overreactor-achieve-it.herokuapp.com/",
   "dependencies": {
+    "axios": "^0.19.2",
     "express": "^4.17.1",
+    "if-env": "^1.0.4",
     "mongodb": "^3.5.9",
     "mongoose": "^5.9.20",
+    "nodemon": "^2.0.4",
     "path": "^0.12.7"
   }
 }

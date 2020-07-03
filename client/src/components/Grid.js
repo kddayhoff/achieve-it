@@ -14,9 +14,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Grid() {
+export default function TestGrid() {
   const classes = useStyles();
 
+  //Inside this Grid component we can take in the information we want to display on the page in a neatly formatted way. I am leaving the basics up so we can customize as we need to.
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>

@@ -11,17 +11,17 @@ mongoose.connect(
 const goalSeed = [
   {
     task: "Polish Resume",
-    notes: "Add new skills & work experience"
+    notes: "Add new skills & work experience",
     date: new Date(Date.now())
   },
   {
     task: "Finish Achieve It",
-    notes: "Collab with the team and kick butt"
+    notes: "Collab with the team and kick butt",
     date: new Date(Date.now())
   },  
   {
     task: "Get a six-pack",
-    notes: "Do 50 pushups a day"
+    notes: "Do 50 pushups a day",
     date: new Date(Date.now())
   }
 ];

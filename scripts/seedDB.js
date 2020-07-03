@@ -18,7 +18,8 @@ const goalSeed = [
     task: "Finish Achieve It",
     notes: "Collab with the team and kick butt"
     date: new Date(Date.now())
-  },  {
+  },  
+  {
     task: "Get a six-pack",
     notes: "Do 50 pushups a day"
     date: new Date(Date.now())

@@ -1,3 +1,4 @@
 module.exports = {
-    Goal: require("./goal")
+    Goal: require("./goal"),
+    User: require("./user")
   };

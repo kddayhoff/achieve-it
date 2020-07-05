@@ -7,7 +7,8 @@ const passportLocalMongoose = require('passport-local-mongoose');
 const passportLocal = require("passport-local").Strategy();
 const passport = require("passport");
 const bcrypt = require("bcryptjs");
-
+const cookieParser = require("cookie-parser");
+const bodyParser = require("body-parser");
 
 const PORT = process.env.PORT || 3001;
 
@@ -16,6 +17,8 @@ const app = express();
 require('dotenv').config();
 
 // Define middleware here
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}});
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors({
@@ -37,11 +40,9 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(cookieParser("secretcode"));
-// require("./passportConfig")(passport);
 
-
-// Define API routes here
-
+require("./passportConfig")(passport);
+require("./routes/api-routes")
 
 //Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/achieve2believe");

@@ -9,7 +9,7 @@ const passport = require("passport");
 const bcrypt = require("bcryptjs");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
-
+const User = require('./user');
 const PORT = process.env.PORT || 3001;
 
 const app = express();
@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors({
-  origin: "http//localhost:3001",
+  origin: "http://localhost:3000" ||"http//localhost:3001",
   credentials: true
 }))
 
@@ -44,7 +44,28 @@ app.use(passport.session());
 app.use(cookieParser("secretcode"));
 
 require("./passportConfig")(passport);
-require("./routes/api-routes")
+require("./routes/api-routes");
+
+//Routes
+app.post('/login', (req,res) => {
+  console.log(req.body);
+});
+app.post('/register', (req,res) => {
+  User.findOne({username: req.body.username}, (err,doc)=>{  
+    if (err) throw (err);
+    if (doc) res.send("User Already Exists");
+    if(!doc) {
+      const newUser = new User({
+        username= req.body.username,
+        password: req.body.password,
+      });
+      await newUser.save();
+      res.send("User Created");
+    }
+  });
+});
+
+app.get('/user', (req, res)=>{});
 
 //Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/achieve2believe", 

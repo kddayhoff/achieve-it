@@ -15,7 +15,7 @@ function App(){
                 password: registerPassword
             },
             withCredentials: true,
-            url:"/register"
+            url:"/"
         }).then((res) => console.log(res));
         
     };
@@ -27,14 +27,14 @@ function App(){
             password: loginPassword
         },
         withCredentials: true,
-        url:"/login"
+        url:"/"
     }).then((res) => console.log(res));};
 
     const getUser = () => {
         axios({
             method: "GET",
             withCredentials: true,
-            url:"/getUser"
+            url:"/"
         }).then((res) => console.log(res));
     };
          return(

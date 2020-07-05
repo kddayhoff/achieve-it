@@ -33,10 +33,12 @@ if (process.env.NODE_ENV === "production") {
 
 
 // We need to use sessions to keep track of our user's login status
+
 app.use(session({ 
   secret: "secretcode", 
   resave: true, 
   saveUninitialized: true }));
+
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(cookieParser("secretcode"));
@@ -45,7 +47,11 @@ require("./passportConfig")(passport);
 require("./routes/api-routes")
 
 //Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/achieve2believe");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/achieve2believe", 
+{
+  useNewUrlParser: true,
+  useFindAndModify: false
+});
 // Send every other request to the React app
 // Define any API routes before this runs
 app.get("*", (req, res) => {

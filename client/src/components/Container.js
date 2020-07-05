@@ -6,7 +6,7 @@ import Footer from "./Layouts/Footer";
 import Navbar from "./Layouts/Navbar";
 import Calendar from 'react-calendar';
 
-// We may not need to use this, but for this whole page container, we would bring in everything packaged together here and then import this Container into the App.js file.
+// Other page components will be brought in here. This component will be the only one called in the App.js file
 
 export default function PageContainer() {
   return (
@@ -16,8 +16,8 @@ export default function PageContainer() {
       {/* <div className={`container${props.fluid ? "-fluid" : ""}`} {...props} /> */}
 
       <Navbar/>
-            <Calendar/>
-            <Footer/>
+      <Calendar/>
+      <Footer/>
 
         <Typography component="div" style={{ backgroundColor: '#3f51b5', height: '100vh' }} />
       </Container>

@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import Container from "./components/Container";
+import PageContainer from "./components/Container";
 
 function App(){
         return(
             <>
             
-            <Container/>
+            <PageContainer/>
             
             </>
         );

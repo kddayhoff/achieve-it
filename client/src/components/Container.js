@@ -1,0 +1,26 @@
+import React from 'react';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
+import Footer from "./Layouts/Footer";
+import Navbar from "./Layouts/Navbar";
+import Calendar from 'react-calendar';
+
+// Other page components will be brought in here. This component will be the only one called in the App.js file
+
+export default function PageContainer() {
+  return (
+    <React.Fragment>
+      <CssBaseline />
+      <Container maxWidth="lg">
+      {/* <div className={`container${props.fluid ? "-fluid" : ""}`} {...props} /> */}
+
+      <Navbar/>
+      <Calendar/>
+      <Footer/>
+
+        <Typography component="div" style={{ backgroundColor: '#3f51b5', height: '100vh' }} />
+      </Container>
+    </React.Fragment>
+  );
+}

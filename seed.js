@@ -1,5 +1,8 @@
 const mongoose = require("mongoose");
-const db = require("./models/index");
+
+const db = require("../models");
+
+
 
 // This file empties the Goals collection and inserts the goals below
 
@@ -13,17 +16,17 @@ mongoose.connect(
 
 const goalSeed = [
   {
-    task: "Polish Resume",
+    title: "Polish Resume",
     notes: "Add new skills & work experience",
     day: new Date(Date.now())
   },
   {
-    task: "Finish Achieve It",
+    title: "Finish Achieve It",
     notes: "Collab with the team and kick butt",
     date: new Date(Date.now())
   },  
   {
-    task: "Get a six-pack",
+    title: "Get a six-pack",
     notes: "Do 50 pushups a day",
     date: new Date(Date.now())
   }

@@ -3,10 +3,10 @@ const session = require("express-session");
 const mongoose = require("mongoose");
 const path = require("path");
 const cors = require("cors");
-const passportLocalMongoose = require('passport-local-mongoose');
-const passportLocal = require("passport-local").Strategy();
+// const passportLocalMongoose = require('passport-local-mongoose');
+// const passportLocal = require("passport-local").Strategy();
 const passport = require("passport");
-const bcrypt = require("bcryptjs");
+// const bcrypt = require("bcryptjs");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const User = require('./user');
@@ -44,42 +44,9 @@ app.use(passport.session());
 app.use(cookieParser("secretcode"));
 
 require("./passportConfig")(passport);
-require("./routes/api-routes");
 
-//Routes
-app.post("/login", (req, res, next) => {
-  passport.authenticate("local", (err, user, info) => {
-    if (err) throw err;
-    if (!user) res.send("No User Exists");
-    else {
-      req.logIn(user, (err) => {
-        if (err) throw err;
-        res.send("Successfully Authenticated");
-        console.log(req.user);
-      });
-    }
-  })(req, res, next);
-});
+require("./routes/api-routes")(app);
 
-app.post("/register", (req, res) => {
-  User.findOne({ username: req.body.username }, async (err, doc) => {
-    if (err) throw err;
-    if (doc) res.send("User Already Exists");
-    if (!doc) {
-      const hashedPassword = await bcrypt.hash(req.body.password, 10);
-
-      const newUser = new User({
-        username: req.body.username,
-        password: hashedPassword,
-      });
-      await newUser.save();
-      res.send("User Created");
-    }
-  });
-});
-app.get("/user", (req, res) => {
-  res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
-});
 
 //Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/achieve2believe", 

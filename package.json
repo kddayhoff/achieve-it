@@ -37,7 +37,11 @@
     "mongoose": "^5.9.20",
     "nodemon": "^2.0.4",
     "passport": "^0.4.1",
+<<<<<<< HEAD
     "passport-local": "^1.0.0",
+=======
+    "passport-local-mongoose": "^6.0.1",
+>>>>>>> 0478e196e04d6d6e5b92efb95ba1de85b7a7b371
     "path": "^0.12.7"
   }
 }

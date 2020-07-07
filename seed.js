@@ -1,18 +1,24 @@
 const mongoose = require("mongoose");
+
 const db = require("../models");
+
+
 
 // This file empties the Books collection and inserts the books below
 
 mongoose.connect(
   process.env.MONGODB_URI ||
-  "mongodb://localhost/achieve2believe"
+  "mongodb://localhost/achieve2believe", {
+    useNewUrlParser: true,
+  useFindAndModify: false
+  }
 );
 
 const goalSeed = [
   {
     title: "Polish Resume",
     notes: "Add new skills & work experience",
-    date: new Date(Date.now())
+    day: new Date(Date.now())
   },
   {
     title: "Finish Achieve It",

@@ -4,7 +4,7 @@
   "description": "A five year planner and objective and goal setter",
   "main": "server.js",
   "scripts": {
-    "seed": "npm run seed",
+    "seed": "node scripts/seedDB.js",
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
     "start:dev": "npm run client",
@@ -36,6 +36,8 @@
     "mongodb": "^3.5.9",
     "mongoose": "^5.9.20",
     "nodemon": "^2.0.4",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
     "path": "^0.12.7"
   }
 }

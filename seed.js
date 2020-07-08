@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const db = require("../models");
+const db = require("./models");
 
 
 
@@ -32,14 +32,47 @@ const goalSeed = [
   }
 ];
 
+const userSeed = [
+  {
+    name: "Polly",
+    password: "password",
+    date: new Date(Date.now())
+  },
+  {
+    name: "Brenda",
+    password: "1234",
+    date: new Date(Date.now())
+  },  
+  {
+    name: "Chad",
+    password: "password",
+    date: new Date(Date.now())
+  }
+];
+
+
+
 db.Goal
   .remove({})
   .then(() => db.Goal.collection.insertMany(goalSeed))
   .then(data => {
-    console.log(data.result.n + " records inserted!");
+    console.log(data.result.n + " records inserted in Goals!");
     process.exit(0);
   })
   .catch(err => {
     console.error(err);
     process.exit(1);
   });
+
+ 
+db.User
+.remove({})
+.then(() => db.User.collection.insertMany(userSeed))
+.then(data => {
+  console.log(data.result.n + " records inserted in Users!");
+  process.exit(0);
+})
+.catch(err => {
+  console.error(err);
+  process.exit(1);
+});

@@ -9,8 +9,8 @@ const passport = require("passport");
 // const bcrypt = require("bcryptjs");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
-const User = require('./user');
-const PORT = process.env.PORT || 3001;
+// const User = require('./user');
+const PORT = process.env.PORT || 3002;
 
 const app = express();
 
@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors({
-  origin: "http://localhost:3000" ||"http//localhost:3001",
+  origin: "http://localhost:3000" ||"http//localhost:3002",
   credentials: true
 }))
 

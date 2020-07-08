@@ -36,7 +36,7 @@ app.post("/register", (req, res) => {
 
       const newUser = new User ({
         username: req.body.username,
-        passowrd: hashedPassword,
+        password: hashedPassword,
       });
       await newUser.save();
       res.send("User Created")
@@ -58,16 +58,12 @@ app.post('/login', (req, res) => {
  })(req, res, next);
 });
 
-
-
-
 app.post("/api/signup", passport.authenticate("local-signup", {
   successRedirect: "/login",
   failureRedirect: "/"
 }));
 
 
- 
 // Route for logging user out
 app.get("/logout", function (req, res) {
   req.logout();
@@ -83,7 +79,7 @@ app.get("/api/user_data", function (req, res) {
     // Otherwise send back the user's email and id
     // Sending back a password, even a hashed password, isn't a good idea
     res.json({
-      email: req.user.email,
+      name: req.user.name,
       id: req.user.id
     });
   }
@@ -94,6 +90,5 @@ app.get("/api/user_data", function (req, res) {
 app.post("/dashboard", (req, res) => {
   console.log(req.body);
 });
-
 }
 

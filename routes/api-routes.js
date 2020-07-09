@@ -16,7 +16,7 @@ router.route("/dashboard")
 
 // Matches with "/api/dashboard/:id"
 router
-  .route("/:id")
+  .route("/dashboard/:id")
   .get(goalsController.findById)
   .put(goalsController.update)
   .delete(goalsController.remove);
@@ -39,7 +39,7 @@ router.route("/user")
 .get(usersController.findAll)
 .post(usersController.create);
 
-router.route("/:id")
+router.route("/user/:id")
 .get(usersController.findById)
 .put(usersController.update)
 .delete(usersController.remove)

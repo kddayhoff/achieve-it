@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const passportLocalMongoose = require('passport-local-mongoose');
 const Schema = mongoose.Schema;
 
 const goalSchema = new Schema({
@@ -7,6 +8,7 @@ const goalSchema = new Schema({
   date: { type: Date, default: Date.now }
 });
 
+goalSchema.plugin(passportLocalMongoose);
 const Goal = mongoose.model("Goal", goalSchema);
 
 module.exports = Goal;

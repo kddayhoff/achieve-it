@@ -34,17 +34,17 @@ const goalSeed = [
 
 const userSeed = [
   {
-    name: "Polly",
+    username: "Polly",
     password: "password",
     date: new Date(Date.now())
   },
   {
-    name: "Brenda",
+    username: "Brenda",
     password: "1234",
     date: new Date(Date.now())
   },  
   {
-    name: "Chad",
+    username: "Chad",
     password: "password",
     date: new Date(Date.now())
   }

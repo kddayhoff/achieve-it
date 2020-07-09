@@ -15,7 +15,8 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  //add user id here to add it to user field
+  //////////////////////////////////////////////////////////
+  //add user id here to add it to user field in goal collection
   create: function(req, res) {
     db.Goal
       .create(req.body)

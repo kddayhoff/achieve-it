@@ -39,6 +39,7 @@ module.exports = {
       return res.json({user: null})
    }
   },
+  
   login: (req, res) => {
     console.log('POST to /login');
     console.log(req.user);

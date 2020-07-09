@@ -4,16 +4,10 @@ const mongoose = require("mongoose");
 const path = require("path");
 const cors = require("cors");
 const routes = require("./routes/api-routes")
-
-// const passportLocalMongoose = require('passport-local-mongoose');
-// const passportLocal = require("passport-local").Strategy();
 const passport = require("passport");
-// const bcrypt = require("bcryptjs");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
-// const User = require('./user');
 const PORT = process.env.PORT || 3002;
-
 const app = express();
 
 require('dotenv').config();

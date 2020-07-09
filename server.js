@@ -3,6 +3,8 @@ const session = require("express-session");
 const mongoose = require("mongoose");
 const path = require("path");
 const cors = require("cors");
+const routes = require("./routes/api-routes")
+
 // const passportLocalMongoose = require('passport-local-mongoose');
 // const passportLocal = require("passport-local").Strategy();
 const passport = require("passport");
@@ -45,7 +47,7 @@ app.use(cookieParser("secretcode"));
 
 require("./passportConfig")(passport);
 
-require("./routes/api-routes")(app);
+app.use(routes);
 
 
 //Connect to MongoDB
@@ -57,6 +59,8 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/achieve2believe
 () => {
   console.log ('Mongoose is Connected!!');
 });
+
+
 // Send every other request to the React app
 // Define any API routes before this runs
 app.get("*", (req, res) => {

@@ -10,3 +10,11 @@ const userSchema = new Schema({
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;
+
+// const mongoose = require('mongoose');
+// const user = new mongoose.Schema({
+//     username: String,
+//     password: String
+// });
+
+// module.exports= mongoose.model("User", user);

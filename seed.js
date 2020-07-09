@@ -1,5 +1,8 @@
 const mongoose = require("mongoose");
-const db = require("./models/index");
+
+const db = require("./models");
+
+
 
 // This file empties the Goals collection and inserts the goals below
 
@@ -13,30 +16,63 @@ mongoose.connect(
 
 const goalSeed = [
   {
-    task: "Polish Resume",
+    title: "Polish Resume",
     notes: "Add new skills & work experience",
     day: new Date(Date.now())
   },
   {
-    task: "Finish Achieve It",
+    title: "Finish Achieve It",
     notes: "Collab with the team and kick butt",
     date: new Date(Date.now())
   },  
   {
-    task: "Get a six-pack",
+    title: "Get a six-pack",
     notes: "Do 50 pushups a day",
     date: new Date(Date.now())
   }
 ];
 
+const userSeed = [
+  {
+    name: "Polly",
+    password: "password",
+    date: new Date(Date.now())
+  },
+  {
+    name: "Brenda",
+    password: "1234",
+    date: new Date(Date.now())
+  },  
+  {
+    name: "Chad",
+    password: "password",
+    date: new Date(Date.now())
+  }
+];
+
+
+
 db.Goal
   .remove({})
   .then(() => db.Goal.collection.insertMany(goalSeed))
   .then(data => {
-    console.log(data.result.n + " records inserted!");
+    console.log(data.result.n + " records inserted in Goals!");
     process.exit(0);
   })
   .catch(err => {
     console.error(err);
     process.exit(1);
   });
+
+ 
+db.User
+.remove({})
+.then(() => db.User.collection.insertMany(userSeed))
+.then(data => {
+  console.log(data.result.n + " records inserted in Users!");
+  process.exit(0);
+})
+.catch(err => {
+  console.error(err);
+  process.exit(1);
+});

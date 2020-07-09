@@ -4,9 +4,27 @@ const passport = require("passport")
 const User = require("../models/user");
 const router = require("express").Router();
 const usersController = require("../controllers/usersController");
+const goalsController = require("../controllers/goalsController");
+
+
+//DASHBOARD
+//////////////////////////////////////////////////////////THIS CODE WORKS!!!!!  Dashboard goal route
+// Matches with "/api/dashboard
+router.route("/dashboard")
+  .get(goalsController.findAll)
+  .post(goalsController.create);
+
+// Matches with "/api/dashboard/:id"
+router
+  .route("/:id")
+  .get(goalsController.findById)
+  .put(goalsController.update)
+  .delete(goalsController.remove);
 
 
 
+
+//USER
 // passport authentication routes for user//////////////////////////////////
 
 //gets all data about a user (username and password that is hashed/encrypted)

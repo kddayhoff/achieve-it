@@ -9,6 +9,6 @@ const goalSchema = new Schema({
 });
 
 goalSchema.plugin(passportLocalMongoose);
-const Goal = mongoose.model("Goal", goalSchema, "Goal");
+const Goal = mongoose.model("Goal", goalSchema);
 
 module.exports = Goal;

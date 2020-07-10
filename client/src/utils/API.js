@@ -3,6 +3,16 @@ import axios from 'axios';
 
 const axios = require("axios");
 
+
+import axios from "axios";
+
+export default axios.create({
+  baseURL: "https://randomuser.me/api",
+  responseType: "json"
+});
+
+
+
 // axios({
 //     "method":"POST",
 //     "url":"https://cronofyraygorodskijv1.p.rapidapi.com/createCalendar",

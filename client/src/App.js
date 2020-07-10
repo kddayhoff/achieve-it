@@ -3,20 +3,20 @@ import PageContainer from "./components/Container";
 import Axios from 'axios';
 
 function App(){
-    const [registerUsername, setRegisterUsername] = useState('');
-    const [registerPassword, setRegisterPassword] = useState('');
+    const [signupUsername, setsignupUsername] = useState('');
+    const [signupPassword, setsignupPassword] = useState('');
     const [loginUsername, setLoginUsername] = useState('');
     const [loginPassword, setLoginPassword] = useState('');
     const [data, setData] = useState(null);
-    const register = () => {
+    const signup = () => {
         Axios({
             method: "POST",
             data: {
-                username: registerUsername,
-                password: registerPassword
+                username: signupUsername,
+                password: signupPassword
             },
             withCredentials: true,
-            url:"http://localhost:3001/register"
+            url:"/signup"
         }).then((res) => console.log(res));
         
     };
@@ -28,14 +28,14 @@ function App(){
             password: loginPassword
         },
         withCredentials: true,
-        url:"http://localhost:3001/login"
+        url:"/login"
     }).then((res) => console.log(res));};
 
     const getUser = () => {
         Axios({
             method: "GET",
             withCredentials: true,
-            url:"http://localhost:3001/user"
+            url:"/user"
         }).then((res) => {
             setData(res.data);
             console.log(res)
@@ -49,15 +49,15 @@ function App(){
 
             <input 
             placeholder="username" 
-            onChange={(e) => setRegisterUsername(e.target.value)}
+            onChange={(e) => setsignupUsername(e.target.value)}
             />
 
             <input 
             placeholder="password" 
-            onChange={(e) => setRegisterPassword(e.target.value)}
+            onChange={(e) => setsignupPassword(e.target.value)}
             />
 
-            <button onClick={register}>Submit </button>
+            <button onClick={signup}>Submit </button>
             
             </div>
             

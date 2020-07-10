@@ -20,9 +20,15 @@ module.exports = {
   create: function(req, res) {
     db.Goal
       .create(req.body)
-      .then(dbModel => res.json(dbModel))
+      .then(({_id}) => 
+      db.User.findOneAndUpdate({}, 
+        { $push: {goal: _id}}, {new: true})) 
+      .then(dbModel => {
+        res.json(dbModel);
+      })
       .catch(err => res.status(422).json(err));
   },
+
   update: function(req, res) {
     db.Goal
       .findOneAndUpdate({ _id: req.params.id }, req.body)

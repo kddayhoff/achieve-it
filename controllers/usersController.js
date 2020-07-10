@@ -52,4 +52,16 @@ module.exports = {
       }
       res.json({ user: cleanUser });
   }
+  //populate user
+  // populateUserGoals: (req, res) =>
+  // app.get("/populateduser", (req, res) => {
+  //   db.User.find({})
+  //     .populate("notes")
+  //     .then(dbUser => {
+  //       res.json(dbUser);
+  //     })
+  //     .catch(err => {
+  //       res.json(err);
+  //     });
+  // });
 };

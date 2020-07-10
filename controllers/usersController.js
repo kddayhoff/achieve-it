@@ -31,12 +31,12 @@ module.exports = {
     },
   //
   getUser: (req, res) => {
-    console.log(req.user) 
+    console.log(req.user);
     if (req.user){
-      return res.json({user: req.user})
+      return res.json({user: req.user});
    }
    else {
-      return res.json({user: null})
+      return res.json({user: null});
    }
   },
   

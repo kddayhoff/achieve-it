@@ -24,6 +24,11 @@
   },
   "homepage": "https://overreactor-achieve-it.herokuapp.com/",
   "dependencies": {
+    "@fullcalendar/core": "^5.1.0",
+    "@fullcalendar/daygrid": "^5.1.0",
+    "@fullcalendar/list": "^5.1.0",
+    "@fullcalendar/react": "^5.1.0",
+    "@fullcalendar/timegrid": "^5.1.0",
     "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
@@ -33,6 +38,7 @@
     "express": "^4.17.1",
     "express-router": "0.0.1",
     "express-session": "^1.17.1",
+    "fullcalendar": "^5.1.0",
     "if-env": "^1.0.4",
     "mongodb": "^3.5.9",
     "mongoose": "^5.9.20",
@@ -40,6 +46,8 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^6.0.1",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   }
 }

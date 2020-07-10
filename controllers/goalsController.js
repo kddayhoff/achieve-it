@@ -1,5 +1,5 @@
 const db = require("../models");
-
+//find by user id, then find all by that user, need association/populate to associate specific goals with one user unit 17 act 15, reference array to all of their goals, 
 // Defining methods for the goalsController
 module.exports = {
   findAll: function(req, res) {
@@ -15,6 +15,8 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  //////////////////////////////////////////////////////////
+  //add user id here to add it to user field in goal collection
   create: function(req, res) {
     db.Goal
       .create(req.body)

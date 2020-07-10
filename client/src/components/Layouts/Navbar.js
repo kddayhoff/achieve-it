@@ -32,7 +32,7 @@ export default function ButtonAppBar() {
           <Typography variant="h6" className={classes.title}>
             <Link to ="/">Achieve 2 Believe</Link>
           </Typography>
-          <Button color="inherit"><Link to="/signin">Sign In</Link> </Button>
+          <Button color="inherit"><Link to="/signup">Sign up</Link> </Button>
         </Toolbar>
       </AppBar>
     </div>

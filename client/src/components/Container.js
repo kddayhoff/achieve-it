@@ -5,7 +5,7 @@ import Container from '@material-ui/core/Container';
 import Footer from "./Layouts/Footer";
 import Navbar from "./Layouts/Navbar";
 import CalApp from './Calendar';
-import SignIn from "../components/Pages/SignIn";
+import Signup from "./Pages/Signup";
 import { HashRouter as Router, Route} from "react-router-dom";
 
 // Other page components will be brought in here. This component will be the only one called in the App.js file
@@ -15,11 +15,10 @@ export default function PageContainer() {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="lg">
-      {/* <div className={`container${props.fluid ? "-fluid" : ""}`} {...props} /> */}
       <Router>
       <Navbar/>
-      {/* <Route exact path="/dashboard" component={Dashboard} /> */}
-      <Route exact path="/signin" component={SignIn} />
+      {/* <Route exact path="/" component={Dashboard} /> */}
+      <Route exact path="/signup" component={Signup} />
       <CalApp/>
       <Footer/>
       </Router>

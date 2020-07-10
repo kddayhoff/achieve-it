@@ -26,7 +26,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function SigninCard() {
+export default function Signup() {
 
   const classes = useStyles();
 

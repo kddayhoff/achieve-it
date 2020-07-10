@@ -1,2 +1,0 @@
-(this["webpackJsonpachieve-it"]=this["webpackJsonpachieve-it"]||[]).push([[0],{13:function(e,t,n){"use strict";n.r(t);var a=n(1),r=n.n(a),c=n(4),i=n.n(c),o=n(5);var u=function(){return r.a.createElement(o.a,null)};i.a.render(r.a.createElement(u,null),document.getElementById("root"))},6:function(e,t,n){e.exports=n(13)}},[[6,1,2]]]);
-//# sourceMappingURL=main.a9ac8953.chunk.js.map

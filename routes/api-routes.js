@@ -23,11 +23,11 @@ router
 //USER
 /////////////////////////////////////////////////////////
 router.route("/user/:id")
-.get(usersController.findById)
+.get(usersController.findById);
 
 //this will allow a new user to register their info//email and password that is then hashed/encrypted
 router.route("/signup")
-.post(usersController.signup)
+.post(usersController.signup);
 
 
 //allows a user to login --- routing the page to the dashboard after login happens on the react side in State

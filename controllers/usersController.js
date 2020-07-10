@@ -24,8 +24,8 @@ module.exports = {
           password: hashedPassword,
         });
         const response = await newUser.save();
-        console.log(response)
-        res.send("User Created")
+        console.log(response);
+        res.send("User Created");
       }
       });
     },

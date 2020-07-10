@@ -24,19 +24,19 @@ module.exports = {
           password: hashedPassword,
         });
         const response = await newUser.save();
-        console.log(response)
-        res.send("User Created")
+        console.log(response);
+        res.send("User Created");
       }
       });
     },
   //
   getUser: (req, res) => {
-    console.log(req.user) 
+    console.log(req.user);
     if (req.user){
-      return res.json({user: req.user})
+      return res.json({user: req.user});
    }
    else {
-      return res.json({user: null})
+      return res.json({user: null});
    }
   },
   

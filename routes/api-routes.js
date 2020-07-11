@@ -21,30 +21,34 @@ router.route("/dashboard/:id")
 
 //USER
 /////////////////////////////////////////////////////////
+//this finds all users, for testing purposes
+router.route("/user")
+.get(usersController.findAll);
+
+//this gets a user by their unique ID
 router.route("/user/:id")
 .get(usersController.findById);
 
 //this will allow a new user to register their info//email and password that is then hashed/encrypted
 router.route("/signup")
-<<<<<<< HEAD
 .post(usersController.signup)
+
 router.route("/signup")
 .post(usersController.signup)
-=======
-.post(usersController.signup);
 
->>>>>>> 2c460022e50785fb1b8bc310222bcaae181a0957
 
 //allows a user to login --- routing the page to the dashboard after login happens on the react side in State
 router.route("/login")
 .post(passport.authenticate("local"), usersController.login);
 
 // Route for logging user out --- routing to the page to the homepage after logout happens with react State
-router.route("/logout", function (req, res) {
+router.route("/logout", (req, res) => {
   req.logout();
   res.json({msg: "Logout Successful"})
 });
 
-router.route("/addgoal")
+//will add goals
+router.route("/updateUserGoals")
+.get(usersController.populateUserGoals)
 
 module.exports = router;

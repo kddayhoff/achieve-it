@@ -4,8 +4,15 @@ const bcrypt = require("bcryptjs");
 
 // Defining methods for the usersController
 module.exports = {
+  findAll: (req, res) => {
+    db.User
+      .find(req.query)
+      .sort({ date: -1 })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
 //finds user by unique ID
-  findById: function(req, res) {
+  findById: (req, res) => {
     db.User
       .findById(req.params.id)
       .then(dbModel => res.json(dbModel))
@@ -51,17 +58,17 @@ module.exports = {
         delete cleanUser.password;
       }
       res.json({ user: cleanUser });
-  }
-  //populate user
-  // populateUserGoals: (req, res) =>
-  // app.get("/populateduser", (req, res) => {
-  //   db.User.find({})
-  //     .populate("notes")
-  //     .then(dbUser => {
-  //       res.json(dbUser);
-  //     })
-  //     .catch(err => {
-  //       res.json(err);
-  //     });
-  // });
+  },
+ 
+  populateUserGoals: (req, res) =>
+   {
+    db.User.find({})
+      .populate("notes")
+      .then(dbUser => {
+        res.json(dbUser);
+      })
+      .catch(err => {
+        res.json(err);
+      });
+   }
 };

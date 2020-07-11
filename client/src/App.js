@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import Footer from "./components/Layouts/Footer";
@@ -10,7 +10,9 @@ import { HashRouter as Router, Route} from "react-router-dom";
 
 
 function App(){
-    
+
+    // const [isAuthenticated, userHasAuthenticated] = useState(false);
+
          return(
              <>
             <div className= "App">

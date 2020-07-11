@@ -8,7 +8,7 @@ import CalApp from './Calendar';
 import Signup from "./Pages/Signup";
 import { HashRouter as Router, Route} from "react-router-dom";
 
-// Other page components will be brought in here. This component will be the only one called in the App.js file
+
 
 export default function PageContainer() {
   return (

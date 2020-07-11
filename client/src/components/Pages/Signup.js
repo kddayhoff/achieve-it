@@ -70,7 +70,7 @@ export default function Signup() {
       });
   };
   return (
-    <Card className={classes.root}>
+    <Card justifyContent="center" className={classes.root}>
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
           Signup
@@ -117,8 +117,9 @@ export default function Signup() {
         <OutlinedInput 
         id="component-outlined" 
         onChange={(e) => setLoginPassword(e.target.value)} label="password" />
-         <Button onClick={login}>Submit </Button>
-      </FormControl>         
+         
+      </FormControl>     
+      <Button onClick={login}>Submit </Button>    
         </Typography>
         </form>
         <div>

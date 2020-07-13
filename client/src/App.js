@@ -7,6 +7,7 @@ import Wrapper from './components/Wrapper';
 import Dashboard from "./components/Pages/Dashboard";
 import Signup from "./components/Pages/Signup";
 import { HashRouter as Router, Route} from "react-router-dom";
+import { UserContext } from './components/UserContext';
 
 
 function App(){
@@ -23,12 +24,12 @@ function App(){
       <Container maxWidth="lg">
       
       <Navbar/>
+      <UserContext.Provider value= "dashboard">
       <Route exact path="/" component={Dashboard} />
+      </UserContext.Provider> 
       <Route exact path="/signup" component={Signup} />
-      {/* <CalApp/> */}
-      <Footer/>
       
-    
+      <Footer/>
       </Container>
       </Wrapper>
       </Router>

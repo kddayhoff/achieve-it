@@ -11,11 +11,15 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
   title: {
     flexGrow: 1,
+  },
+  btns: {
+    background: 'linear-gradient(45deg, #3f51b5 30%, #32408f 90%)',
+    color: 'black',
+    height: 48,
+    padding: '0 8px',
+    fontSize: 18,
   },
 }));
 
@@ -26,13 +30,11 @@ export default function ButtonAppBar() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
           <Typography variant="h6" className={classes.title}>
-            <Link to ="/">Achieve 2 Believe</Link>
+            <Link style={{ textDecoration: 'none' }} to ="/"><Button className={classes.btns}>Achieve 2 Believe</Button></Link>
           </Typography>
-          <Button color="inherit"><Link to="/signup">Sign up</Link> </Button>
+          <Link style={{ textDecoration: 'none' }} to="/signup">
+          <Button className={classes.btns}>Sign up </Button></Link>
         </Toolbar>
       </AppBar>
     </div>

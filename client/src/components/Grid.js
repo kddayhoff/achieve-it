@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Calendar from "./Calendar";
-
+import Signup from "./Pages/Signup";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,7 +24,8 @@ export default function TestGrid() {
     <div className={classes.root}>
       <Grid container spacing={3}>
         <Grid item xs={12}>
-          <Paper className={classes.paper}>Welcome To Achieve 2 Believe, an application to keep yourself accountable and organized in terms of your goals and dreams</Paper>
+          <Paper className={classes.paper}>Welcome To Achieve 2 Believe, an application to keep yourself accountable and organized in terms of your goals and dreams<hr></hr>
+          <Signup/></Paper>
         </Grid>
         <Grid item xs={12} sm={6}>
           <Paper className={classes.paper}><Calendar/></Paper>

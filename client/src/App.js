@@ -7,35 +7,32 @@ import Wrapper from './components/Wrapper';
 import Dashboard from "./components/Pages/Dashboard";
 import Signup from "./components/Pages/Signup";
 import { HashRouter as Router, Route} from "react-router-dom";
-import { UserContext } from './components/UserContext';
+import { UserContext } from './components/contexts/UserContext';
 
 
 function App(){
 
     // const [isAuthenticated, userHasAuthenticated] = useState(false);
 
-         return(
-             <>
-            <div className= "App">
-           <React.Fragment>
+    return(
+        <>
+         <div className= "App">
+        <React.Fragment>
            <Router>
-               <Wrapper>
-      <CssBaseline />
-      <Container maxWidth="lg">
+            <Wrapper>
+            <CssBaseline />
+            <Container maxWidth="lg">
       
-      <Navbar/>
-      <UserContext.Provider value= "dashboard">
-      <Route exact path="/" component={Dashboard} />
-      </UserContext.Provider> 
-      <Route exact path="/signup" component={Signup} />
-      
-      <Footer/>
-      </Container>
-      </Wrapper>
-      </Router>
-    </React.Fragment>
-            </div>
-            </>
+            <Navbar/>
+            <Route exact path="/" component={Dashboard} /> 
+            <Route exact path="/signup" component={Signup} />
+            <Footer/>
+            </Container>
+            </Wrapper>
+            </Router>
+        </React.Fragment>
+        </div>
+        </>
         );
     
 }

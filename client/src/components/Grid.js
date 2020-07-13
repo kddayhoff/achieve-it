@@ -4,6 +4,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Calendar from "./Calendar";
 import Signup from "./Pages/Signup";
+import { UserContext } from './contexts/UserContext';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,6 +28,7 @@ export default function TestGrid() {
           <Paper className={classes.paper}>Welcome To Achieve 2 Believe, an application to keep yourself accountable and organized in terms of your goals and dreams<hr></hr>
           <Signup/></Paper>
         </Grid>
+        <UserContext.Provider value={{}}>
         <Grid item xs={12} sm={6}>
           <Paper className={classes.paper}><Calendar/></Paper>
         </Grid>
@@ -34,6 +36,7 @@ export default function TestGrid() {
           <Paper className={classes.paper}>Goal Stuff || information</Paper>
           <Paper className={classes.paper}>Goal Stuff</Paper>
         </Grid>
+        </UserContext.Provider>
         <Grid item xs={6} sm={3}>
           <Paper className={classes.paper}>grid area</Paper>
         </Grid>

@@ -19,11 +19,21 @@ const useStyles = makeStyles({
     transform: 'scale(0.8)',
   },
   title: {
-    fontSize: 14,
+    fontSize: 20,
+    fontweight: 'bold',
+    fontsyle: 'italic'
   },
   pos: {
     marginBottom: 12,
   },
+  btns: {
+    background: 'linear-gradient(45deg, #3f51b5 30%, #32408f 90%)',
+    color: 'black',
+    height: 48,
+    padding: '0 8px',
+    fontSize: 18,
+    
+  }
 });
 
 export default function Signup() {
@@ -35,7 +45,6 @@ export default function Signup() {
   const [loginUsername, setLoginUsername] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
   const [data, setData] = useState(null);
-  
   const signup = () => {
       Axios({
           method: "POST",
@@ -95,7 +104,7 @@ export default function Signup() {
           label="password"
         />
       </FormControl>
-            <Button onClick={signup}>Submit </Button>
+            <Button className= {classes.btns} onClick={signup}>Submit </Button>
         </Typography>
         </form>
     
@@ -119,12 +128,12 @@ export default function Signup() {
         onChange={(e) => setLoginPassword(e.target.value)} label="password" />
          
       </FormControl>     
-      <Button onClick={login}>Submit </Button>    
+      <Button className= {classes.btns} onClick={login}>Submit </Button>    
         </Typography>
         </form>
         <div>
                 <h1>Get User</h1>
-                <Button onClick={getUser}>Submit </Button>
+                <Button className= {classes.btns} onClick={getUser}>Submit </Button>
                 {data ? <h1>hey there, {data.username}</h1> : null}
             </div>
       </CardContent>

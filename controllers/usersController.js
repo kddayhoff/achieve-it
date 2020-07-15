@@ -12,18 +12,18 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 //finds user by unique ID
-  findById: (req, res) => {
-    db.User
-      .findById(req.params.id)
-      .then(dbModel => {
-        const user = {
-          _id: dbModel._id,
-          notes: dbModel.notes,
-          username: dbModel.username
-        }
-        res.json(user)})
-      .catch(err => res.status(422).json(err));
-  },
+  // findById: (req, res) => {
+  //   db.User
+  //     .findById(req.params.id)
+  //     .then(dbModel => {
+  //       const user = {
+  //         _id: dbModel._id,
+  //         goals: dbModel.goals,
+  //         username: dbModel.username
+  //       }
+  //       res.json(user)})
+  //     .catch(err => res.status(422).json(err));
+  // },
   //puts a new user in the database with hashed password and unique ID
   signup: (req, res) => {
     User.findOne({username: req.body.username}, async (err, doc) => {
@@ -43,15 +43,15 @@ module.exports = {
       });
     },
   //
-  getUser: (req, res) => {
-    console.log(req.user);
-    if (req.user){
-      return res.json({user: req.user});
-   }
-   else {
-      return res.json({user: null});
-   }
-  },
+  // getUser: (req, res) => {
+  //   console.log(req.user);
+  //   if (req.user){
+  //     return res.json({user: req.user});
+  //  }
+  //  else {
+  //     return res.json({user: null});
+  //  }
+  // },
   
   login: (req, res) => {
     console.log('POST to /login');
@@ -66,24 +66,24 @@ module.exports = {
       res.json({ user: cleanUser });
   },
 
-  remove: function(req, res) {
-    db.User
-      .findById({ _id: req.params.id })
-      .then(dbModel => dbModel.remove())
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
+  // remove: function(req, res) {
+  //   db.User
+  //     .findById({ _id: req.params.id })
+  //     .then(dbModel => dbModel.remove())
+  //     .then(dbModel => res.json(dbModel))
+  //     .catch(err => res.status(422).json(err));
+  // },
  
-  populateUserGoals: (req, res) =>
-   {
-    db.User.find(req.user.id)
-      .populate("notes")
-      .then(dbUser => {
-        res.json(dbUser);
-      })
-      console.log(dbUser)
-      .catch(err => {
-        res.json(err);
-      });
-   }
+  // populateUserGoals: (req, res) =>
+  //  {
+  //   db.User.find(req.user.id)
+  //     .populate("notes")
+  //     .then(dbUser => {
+  //       res.json(dbUser);
+  //     })
+  //     console.log(dbUser)
+  //     .catch(err => {
+  //       res.json(err);
+  //     });
+  //  }
 };

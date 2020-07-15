@@ -6,12 +6,10 @@ const userSchema = new Schema({
   username: { type: String, required: true },
   password: { type: String, required: true },
   date: { type: Date, default: Date.now },
-  notes: [
+  goals: [
     {
-      // type: Schema.Types.ObjectId,
-      // ref: "Goal"
-      title: { type: String, required: true },
-      notes: { type: String, required: true },
+      goal: { type: String, required: true },
+      task: { type: String, required: true }
     }
   ]
 

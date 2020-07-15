@@ -5,7 +5,7 @@ import Footer from "./components/Layouts/Footer";
 import Navbar from "./components/Layouts/Navbar";
 import Wrapper from './components/Wrapper';
 import Dashboard from "./components/Pages/Dashboard";
-import Signout from "./components/Pages/SignOut";
+import Signup from "./components/Pages/Signup";
 import { HashRouter as Router, Route} from "react-router-dom";
 import { UserContext } from './components/contexts/UserContext';
 
@@ -25,7 +25,7 @@ function App(){
       
             <Navbar/>
             <Route exact path="/" component={Dashboard} /> 
-            <Route exact path="/signout" component={Signout} />
+            <Route exact path="/signup" component={Signup} />
             <Footer/>
             </Container>
             </Wrapper>

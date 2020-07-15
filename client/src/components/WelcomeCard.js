@@ -15,13 +15,17 @@ const useStyles = makeStyles({
   },
   title: {
     fontSize: 20,
-    fontWeight: 'bold',
-    textAlign: 'center'
+    fontWeight: 'bold'
   },
-
+  pos: {
+    marginBottom: 12,
+  },
+  body: {
+      fontSize: 14,
+  }
 });
 
-export default function SignOut() {
+export default function WelcomeCard() {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
@@ -29,7 +33,10 @@ export default function SignOut() {
     <Card className={classes.root} variant="outlined">
       <CardContent>
         <Typography className={classes.title} variant="h1">
-         Sign out Credentials and whatnot
+          Achieve 2 Believe
+        </Typography>
+        <Typography className={classes.body} >
+          {bull} Create a list of goals and objectives, keep track of them on an interactive calendar. Keep control of your life and make your dreams a reality
         </Typography>
       </CardContent>
     </Card>

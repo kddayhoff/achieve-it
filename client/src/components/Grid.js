@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Calendar from "./Calendar";
 import Signup from "./Pages/Signup";
 import { UserContext } from './contexts/UserContext';
-
+import WelcomeCard from "./WelcomeCard";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -25,7 +25,7 @@ export default function TestGrid() {
     <div className={classes.root}>
       <Grid container spacing={3}>
         <Grid item xs={12}>
-          <Paper className={classes.paper}>Welcome To Achieve 2 Believe, an application to keep yourself accountable and organized in terms of your goals and dreams<hr></hr>
+          <Paper className={classes.paper}><WelcomeCard/><hr></hr>
           <Signup/></Paper>
         </Grid>
         <UserContext.Provider value={{}}>

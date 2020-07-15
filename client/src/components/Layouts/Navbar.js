@@ -11,6 +11,10 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+    
+  },
+  bar:{
+    background: 'linear-gradient(45deg, #3f51b5 30%, #32408f 90%)'
   },
   btns: {
     background: 'linear-gradient(45deg, #3f51b5 30%, #32408f 90%)',
@@ -27,12 +31,12 @@ export default function ButtonAppBar() {
   return (
     <div className={classes.root}>
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar className={classes.bar}>
           <Typography variant="h6" className={classes.title}>
             <Link style={{ textDecoration: 'none' }} to ="/"><Button className={classes.btns}>Achieve 2 Believe</Button></Link>
           </Typography>
-          <Link style={{ textDecoration: 'none' }} to="/signup">
-          <Button className={classes.btns}>Sign up </Button></Link>
+          <Link style={{ textDecoration: 'none' }} to="/signout">
+          <Button className={classes.btns}>Sign Out </Button></Link>
         </Toolbar>
       </AppBar>
     </div>

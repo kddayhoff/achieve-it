@@ -20,6 +20,6 @@ class UserContextProvider extends Component {
     }
 }
  
-export default UserContextProvider
+export default UserContextProvider; 
 
 

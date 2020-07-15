@@ -31,8 +31,8 @@ export default function ButtonAppBar() {
           <Typography variant="h6" className={classes.title}>
             <Link style={{ textDecoration: 'none' }} to ="/"><Button className={classes.btns}>Achieve 2 Believe</Button></Link>
           </Typography>
-          <Link style={{ textDecoration: 'none' }} to="/signup">
-          <Button className={classes.btns}>Sign up </Button></Link>
+          <Link style={{ textDecoration: 'none' }} to="/logout">
+          <Button className={classes.btns}>Log Out </Button></Link>
         </Toolbar>
       </AppBar>
     </div>

@@ -21,13 +21,13 @@ function App(){
            <Router>
             <Wrapper>
             <CssBaseline />
-            <Container maxWidth="lg">
+           
       
             <Navbar/>
             <Route exact path="/" component={Dashboard} /> 
             <Route exact path="/logout" component={LogOut} />
             <Footer/>
-            </Container>
+    
             </Wrapper>
             </Router>
         </React.Fragment>

@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Calendar from "../Calendar";
-import { UserContext } from '../contexts/UserContext';
+import UserContext from "../contexts/UserContext"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Dashboard() {
  
 const classes = useStyles();
-
+console.log(UserContext);
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
@@ -28,7 +28,7 @@ const classes = useStyles();
           
           </Paper>
         </Grid>
-        <UserContext.Provider value={{}}>
+     
         <Grid item xs={12} sm={6}>
           <Paper className={classes.paper}>
                  
@@ -58,7 +58,7 @@ const classes = useStyles();
                   grid area
                   </Paper>
         </Grid>
-        </UserContext.Provider>       
+            
       </Grid>
     </div>
   );

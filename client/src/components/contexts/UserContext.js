@@ -6,7 +6,7 @@ class UserContextProvider extends Component {
     state = {  
         isUser: false
     }
-
+   
     toggleUser= () =>{
     this.setState({isUser:!this.state.isUser });
     };

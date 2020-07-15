@@ -12,7 +12,6 @@ export default function Footer() {
       flexGrow: 1,
       background: 'linear-gradient(45deg, #3f51b5 30%, #32408f 90%)',
       textAlign: 'center',
-      alignContent: 'center'
     },
     title: {
       flexGrow: 1,

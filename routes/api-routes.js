@@ -13,9 +13,9 @@ router.route("/dashboard")
 
 // Matches with "/api/dashboard/:id"
 router.route("/dashboard/:id")
-  .get(goalsController.findById)
-  .put(goalsController.update)
-  .delete(goalsController.remove);
+  .put(goalsController.addGoal)
+  // .put(goalsController.update)
+  // .delete(goalsController.remove);
   //return user dashboard with goals only and username but no ID or password
 
 
@@ -33,9 +33,6 @@ router.route("/user/:id")
 router.route("/signup")
 .post(usersController.signup)
 
-router.route("/signup")
-.post(usersController.signup)
-
 
 //allows a user to login --- routing the page to the dashboard after login happens on the react side in State
 router.route("/login")
@@ -47,8 +44,10 @@ router.route("/logout", (req, res) => {
   res.json({msg: "Logout Successful"})
 });
 
+router.route("/deleteUser")
+.delete(usersController.remove)
 //will add goals
-router.route("/updateUserGoals")
-.get(usersController.populateUserGoals)
+// router.route("/updateUserGoals")
+// .get(usersController.populateUserGoals)
 
 module.exports = router;

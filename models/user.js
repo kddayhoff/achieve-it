@@ -8,8 +8,10 @@ const userSchema = new Schema({
   date: { type: Date, default: Date.now },
   notes: [
     {
-      type: Schema.Types.ObjectId,
-      ref: "Goal"
+      // type: Schema.Types.ObjectId,
+      // ref: "Goal"
+      title: { type: String, required: true },
+      notes: { type: String, required: true },
     }
   ]
 

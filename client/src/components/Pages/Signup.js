@@ -12,6 +12,7 @@ import Axios from 'axios';
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
+    justifyContent: 'center'
   },
   bullet: {
     display: 'inline-block',
@@ -79,7 +80,7 @@ export default function Signup() {
       });
   };
   return (
-    <Card justifyContent="center" className={classes.root}>
+    <Card className={classes.root}>
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
           Signup

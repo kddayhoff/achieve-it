@@ -30,7 +30,7 @@ export default function ButtonAppBar() {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            <Link style={{ textDecoration: 'none' }} to ="/"><Button className={classes.btns}>Achieve 2 Believe</Button></Link>
+            <Link style={{ textDecoration: 'none' }} to ="/Dashboard"><Button className={classes.btns}>Achieve 2 Believe</Button></Link>
           </Typography>
           <Link style={{ textDecoration: 'none' }} to="/logout">
           <Button className={classes.btns}>Log Out </Button></Link>

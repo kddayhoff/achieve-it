@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Container from '@material-ui/core/Container';
 import Footer from "./components/Layouts/Footer";
 import Navbar from "./components/Layouts/Navbar";
 import Wrapper from './components/Wrapper';
@@ -8,7 +7,7 @@ import Dashboard from "./components/Pages/Dashboard";
 import LogOut from "./components/Pages/LogOut";
 import { HashRouter as Router, Route} from "react-router-dom";
 import { UserContext } from './components/contexts/UserContext';
-
+import Signup from './components/Signup';
 
 function App(){
 
@@ -20,13 +19,12 @@ function App(){
         <React.Fragment>
            <Router>
             <Wrapper>
-            <CssBaseline />
-           
-      
-            <Navbar/>
-            <Route exact path="/" component={Dashboard} /> 
-            <Route exact path="/logout" component={LogOut} />
-            <Footer/>
+                <CssBaseline />
+                <Navbar/>
+                    <Route exact path="/Dashboard" component={Dashboard} />
+                    <Route exact path="/" component={Signup}/> 
+                    <Route exact path="/logout" component={LogOut} />
+                <Footer/>
     
             </Wrapper>
             </Router>

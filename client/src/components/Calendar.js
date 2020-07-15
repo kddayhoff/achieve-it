@@ -4,13 +4,19 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
 import { INITIAL_EVENTS, createEventId } from './Events'
-
+import axios from "axios"
 export default class CalApp extends React.Component {
 
   state = {
     weekendsVisible: true,
     currentEvents: []
   }
+
+  componentDidMount () {
+    axios.get("/user/5f09fc26c3cf8268d749b740")
+    .then (res =>
+      this.setState({currentEvents: res.data.notes})
+    )}
 
   render() {
     return (

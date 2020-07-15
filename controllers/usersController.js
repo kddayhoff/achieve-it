@@ -15,7 +15,13 @@ module.exports = {
   findById: (req, res) => {
     db.User
       .findById(req.params.id)
-      .then(dbModel => res.json(dbModel))
+      .then(dbModel => {
+        const user = {
+          _id: dbModel._id,
+          notes: dbModel.notes,
+          username: dbModel.username
+        }
+        res.json(user)})
       .catch(err => res.status(422).json(err));
   },
   //puts a new user in the database with hashed password and unique ID
@@ -59,14 +65,23 @@ module.exports = {
       }
       res.json({ user: cleanUser });
   },
+
+  remove: function(req, res) {
+    db.User
+      .findById({ _id: req.params.id })
+      .then(dbModel => dbModel.remove())
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
  
   populateUserGoals: (req, res) =>
    {
-    db.User.find({})
+    db.User.find(req.user.id)
       .populate("notes")
       .then(dbUser => {
         res.json(dbUser);
       })
+      console.log(dbUser)
       .catch(err => {
         res.json(err);
       });

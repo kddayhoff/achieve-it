@@ -4,27 +4,24 @@ const bcrypt = require("bcryptjs");
 
 // Defining methods for the usersController
 module.exports = {
-  findAll: (req, res) => {
-    db.User
-      .find(req.query)
-      .sort({ date: -1 })
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
-//finds user by unique ID
+
+// finds user by unique id and populates page with goals and tasks
   findById: (req, res) => {
     db.User
       .findById(req.params.id)
+      .populate("goals")
+      // .populate("tasks")
       .then(dbModel => {
         const user = {
           _id: dbModel._id,
-          notes: dbModel.notes,
+          goals: dbModel.goals,
           username: dbModel.username
         }
         res.json(user)})
       .catch(err => res.status(422).json(err));
   },
-  //puts a new user in the database with hashed password and unique ID
+
+  //adds a new user in the database with hashed password and unique ID
   signup: (req, res) => {
     User.findOne({username: req.body.username}, async (err, doc) => {
       if (err) throw err;
@@ -42,7 +39,8 @@ module.exports = {
       }
       });
     },
-  //
+
+  //used for client side state in order to confirm if a user is logged in or not. req.user is a Passport built-in command
   getUser: (req, res) => {
     console.log(req.user);
     if (req.user){
@@ -53,6 +51,7 @@ module.exports = {
    }
   },
   
+  //allows a current user (who is already signed up) to login to view their goal dashboard
   login: (req, res) => {
     console.log('POST to /login');
     console.log(req.user);
@@ -64,26 +63,5 @@ module.exports = {
         delete cleanUser.password;
       }
       res.json({ user: cleanUser });
-  },
-
-  remove: function(req, res) {
-    db.User
-      .findById({ _id: req.params.id })
-      .then(dbModel => dbModel.remove())
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
- 
-  populateUserGoals: (req, res) =>
-   {
-    db.User.find(req.user.id)
-      .populate("notes")
-      .then(dbUser => {
-        res.json(dbUser);
-      })
-      console.log(dbUser)
-      .catch(err => {
-        res.json(err);
-      });
-   }
+  }
 };

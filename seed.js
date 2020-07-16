@@ -16,18 +16,18 @@ mongoose.connect(
 
 const goalSeed = [
   {
-    title: "Polish Resume",
-    notes: "Add new skills & work experience",
+    goal: "Polish Resume",
+    task: "Add new skills & work experience",
     day: new Date(Date.now())
   },
   {
-    title: "Finish Achieve It",
-    notes: "Collab with the team and kick butt",
+    goal: "Finish Achieve It",
+    task: "Collab with the team and kick butt",
     date: new Date(Date.now())
   },  
   {
-    title: "Get a six-pack",
-    notes: "Do 50 pushups a day",
+    goal: "Get a six-pack",
+    task: "Do 50 pushups a day",
     date: new Date(Date.now())
   }
 ];
@@ -36,16 +36,19 @@ const userSeed = [
   {
     username: "Polly",
     password: "password",
+    goals:[],
     date: new Date(Date.now())
   },
   {
     username: "Brenda",
     password: "1234",
+    goals:[],
     date: new Date(Date.now())
   },  
   {
     username: "Chad",
     password: "password",
+    goals:[],
     date: new Date(Date.now())
   }
 ];

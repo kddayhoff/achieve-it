@@ -14,7 +14,7 @@ router.route("/dashboard/:id")
   //client side needs to pass user ID to get dashboard
 
   // .put(goalsController.addGoal)
-  .delete(goalsController.remove)
+  .delete(goalsController.delete)
   //client side needs to pass goal ID
 
   .post(goalsController.create);

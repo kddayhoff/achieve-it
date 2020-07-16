@@ -8,8 +8,8 @@ const userSchema = new Schema({
   date: { type: Date, default: Date.now },
   goals: [
     {
-      goal: { type: String, required: true },
-      task: { type: String, required: true }
+      type: Schema.Types.ObjectId,
+      ref: "Goal"
     }
   ]
 

@@ -6,33 +6,29 @@ const goalsController = require("../controllers/goalsController");
 
 //DASHBOARD --- Where we get all of our user's dashboard goals/calendar
 //////////////////////////////////////////////////////////
-// Matches with "/api/dashboard
-router.route("/dashboard")
-  // .get(goalsController.findAll)
-  .post(goalsController.create);
 
-// Matches with "/api/dashboard/:id"
+
+//Allows a user to get their info (goals and tasks), .post will allow users to create a goal that pushes to their unique user id, delete should allow a user to delete a specific goal, unable to delete specific tasks at the moment
 router.route("/dashboard/:id")
-  .get(goalsController.findById)
-  .put(goalsController.update)
-  .delete(goalsController.remove);
-  //return user dashboard with goals only and username but no ID or password
+  .get(usersController.findById)
+  //client side needs to pass user ID to get dashboard
 
+  // .put(goalsController.addGoal)
+  .delete(goalsController.remove)
+  //client side needs to pass goal ID
+
+  .post(goalsController.create);
+//client side needs to pass user ID to get dashboard
 
 //USER
 /////////////////////////////////////////////////////////
 router.route("/user")
-.get(usersController.findAll);
+.get(usersController.getUser);
+//this is important on the client side to verify that a user is logged in ==runs this route every time a page is reloaded == boolean true, null if they're not
 
 //this will allow a new user to register their info//email and password that is then hashed/encrypted
-// router.route("/signup")
-
-// .post(usersController.signup)
 router.route("/signup")
-.post(usersController.signup)
-
-// .post(usersController.signup);
-
+.post(usersController.signup);
 
 
 //allows a user to login --- routing the page to the dashboard after login happens on the react side in State
@@ -45,6 +41,5 @@ router.route("/logout", function (req, res) {
   res.json({msg: "Logout Successful"})
 });
 
-router.route("/addgoal")
 
 module.exports = router;

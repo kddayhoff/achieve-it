@@ -13,7 +13,7 @@ export default class CalApp extends React.Component {
   }
 
   componentDidMount () {
-    axios.get("/user/5f09fc26c3cf8268d749b740")
+    axios.get("/dashboard/:id")
     .then (res =>
       this.setState({currentEvents: res.data.notes})
     )}

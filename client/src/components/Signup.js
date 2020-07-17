@@ -135,7 +135,7 @@ export default function Signup() {
         <div>
                 <h1>Get User</h1>
                 <Button className= {classes.btns} onClick={getUser}>Submit </Button>
-                {data ? <h1>hey there, {data.username}</h1> : null}
+                {data ? <h1>hey there, {data.user}</h1> : null}
             </div>
       </CardContent>
     </Card>

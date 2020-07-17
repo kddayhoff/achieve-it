@@ -11,8 +11,6 @@ import Signup from './components/Signup';
 
 function App(){
 
-    // const [isAuthenticated, userHasAuthenticated] = useState(false);
-
     return(
         <>
          <div className= "App">

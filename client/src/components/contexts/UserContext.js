@@ -4,11 +4,11 @@ export const UserContext = createContext();
 
 class UserContextProvider extends Component {
     state = {  
-        isUser: false
+        isAuthenticated: false
     }
    
-    toggleUser= () =>{
-    this.setState({isUser:!this.state.isUser });
+    toggleUser= () => {
+    this.setState({isAuthenticated: !this.state.isAuthenticated });
     };
 
     render() { 

@@ -21,6 +21,10 @@ export default function Dashboard() {
 const classes = useStyles();
 console.log(UserContext);
   return (
+    <UserContext.Consumer> {(userContext) => 
+      {
+      const {isAuthenticated, toggleUser} = userContext;
+      return(
     <div className={classes.root}>
       <Grid container spacing={3}>
         <Grid item xs={12}>
@@ -61,6 +65,11 @@ console.log(UserContext);
             
       </Grid>
     </div>
+    
+      )}
+      }
+    </UserContext.Consumer>
+
   );
 }
 

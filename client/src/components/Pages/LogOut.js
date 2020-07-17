@@ -40,14 +40,10 @@ export default function LogOut() {
   // INCOMPLETE; NEEDS JUICE
   const logout = () => {
       Axios({
-          method:"",
-          data:
-          {
-
-          },
+          method:"GET",
           withCredentials: true,
           url:'/logout'
-      }).then((res) => console.log(res));
+      }).then((res) => res.redirect('/'));
   }
 
   return (

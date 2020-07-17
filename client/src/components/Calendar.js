@@ -5,6 +5,7 @@ import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
 import { INITIAL_EVENTS, createEventId } from './Events'
 import axios from "axios"
+
 export default class CalApp extends React.Component {
 
   state = {
@@ -15,7 +16,7 @@ export default class CalApp extends React.Component {
   componentDidMount () {
     axios.get("/dashboard/:id")
     .then (res =>
-      this.setState({currentEvents: res.data.notes})
+      this.setState({currentEvents: res.data.goal})
     )}
 
   render() {
@@ -103,8 +104,16 @@ export default class CalApp extends React.Component {
         end: selectInfo.endStr,
         allDay: selectInfo.allDay
       })
+      axios.post('/dashboard/:id', title)
+      .then((res) => {
+        console.log(res.data.goal)
+      }).catch((error) => {
+        console.log(error)
+      })
+      this.setState({ id: '', title: '', start: '', end:'', allDay:''})
+      }
     }
-  }
+  
 
   handleEventClick = (clickInfo) => {
     if (window.confirm(`Are you sure you want to delete the event '${clickInfo.event.title}'`)) {
@@ -113,6 +122,7 @@ export default class CalApp extends React.Component {
   }
 
   handleEvents = (events) => {
+
     this.setState({
       currentEvents: events
     })

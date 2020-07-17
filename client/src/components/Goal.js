@@ -59,16 +59,16 @@ export default function Goal () {
         }).then((res) => console.log(res));
     }
 
-    const addTask = () =>{
-        onClick( render.json(` <InputLabel htmlFor="component-outlined">task</InputLabel>
-        <OutlinedInput
-          id="component-outlined"
+    // const addTask = () =>{
+    //     onClick( render.json(` <InputLabel htmlFor="component-outlined">task</InputLabel>
+    //     <OutlinedInput
+    //       id="component-outlined"
          
-          onChange={(e) => setTask(e.target.value)}
-          label="task"
-        />
-      </FormControl>`))
-    }
+    //       onChange={(e) => setTask(e.target.value)}
+    //       label="task"
+    //     />
+    //   </FormControl>`))
+    // }
     return(
         <Card className={classes.root}>
       <CardContent>
@@ -102,7 +102,7 @@ export default function Goal () {
         />
       </FormControl>
      <br></br>
-     <Button className= {classes.btns} onClick={addTask}>Add Task</Button>
+     {/* <Button className= {classes.btns} onClick={addTask}>Add Task</Button> */}
         <Button className= {classes.btns} onClick={goal}>Set Goal</Button>
         </Typography>
         </form>

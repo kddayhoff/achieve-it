@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Calendar from "../Calendar";
-import { UserContext } from '../contexts/UserContext';
+import { UserContext } from '../libs/UserContext';
 
 const useStyles = makeStyles((theme) => ({
   root: {

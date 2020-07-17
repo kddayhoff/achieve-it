@@ -19,8 +19,12 @@ const useStyles = makeStyles((theme) => ({
 export default function Dashboard() {
  
 const classes = useStyles();
-
+console.log(UserContext);
   return (
+    <UserContext.Consumer> {(userContext) => 
+      {
+      const {isAuthenticated, toggleUser} = userContext;
+      return(
     <div className={classes.root}>
       <Grid container spacing={3}>
         <Grid item xs={12}>
@@ -28,7 +32,7 @@ const classes = useStyles();
           
           </Paper>
         </Grid>
-        <UserContext.Provider value={{}}>
+     
         <Grid item xs={12} sm={6}>
           <Paper className={classes.paper}>
                  
@@ -58,8 +62,15 @@ const classes = useStyles();
                   grid area
                   </Paper>
         </Grid>
-        </UserContext.Provider>       
+            
       </Grid>
     </div>
+    
+      )}
+      }
+    </UserContext.Consumer>
+
   );
 }
+
+

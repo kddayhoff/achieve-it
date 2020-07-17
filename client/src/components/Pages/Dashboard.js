@@ -4,7 +4,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Calendar from "../Calendar";
 import { UserContext } from '../libs/UserContext';
-
+import Goal from "../Goal"
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -43,7 +43,7 @@ const classes = useStyles();
                   Goal Stuff || information
                   </Paper>
           <Paper className={classes.paper}>
-                  Goal Stuff
+                  <Goal/>
                   </Paper>
           <Paper className={classes.paper}>
                   grid area

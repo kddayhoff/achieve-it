@@ -6,7 +6,6 @@ import Wrapper from './components/Wrapper';
 import Dashboard from "./components/Pages/Dashboard";
 import LogOut from "./components/Pages/LogOut";
 import { HashRouter as Router, Route} from "react-router-dom";
-import { UserContext } from './components/libs/UserContext';
 import Signup from './components/Signup';
 
 function App(){

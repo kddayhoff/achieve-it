@@ -47,6 +47,12 @@ export default function Goal () {
 
     const [postGoal, setGoal] = useState('');
     const [postTask, setTask] = useState('');
+    
+    // state = {
+    //     task: ''
+    // }
+
+
     const goal = () =>{
         Axios({
             method: "POST",
@@ -59,16 +65,11 @@ export default function Goal () {
         }).then((res) => console.log(res));
     }
 
-    // const addTask = () =>{
-    //     onClick( render.json(` <InputLabel htmlFor="component-outlined">task</InputLabel>
-    //     <OutlinedInput
-    //       id="component-outlined"
-         
-    //       onChange={(e) => setTask(e.target.value)}
-    //       label="task"
-    //     />
-    //   </FormControl>`))
+    // const addTask = (e) =>{
+    //    this.setState(())
     // }
+
+
     return(
         <Card className={classes.root}>
       <CardContent>

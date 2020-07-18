@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
-import { Link } from "react-router-dom";
+import { Link, useHistory, Redirect} from "react-router-dom";
 import Axios from 'axios';
 // import Signup from '../Signup';
 
@@ -38,11 +38,12 @@ const useStyles = makeStyles({
   },
 });
 
-export default function LogOut() {
+function Login() {
   const classes= useStyles();
   const [loginUsername, setLoginUsername] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
-
+  // let history = useHistory();
+  const [loggedin, setLoggedin] = useState(false); 
   const login = () => { 
     
     Axios({
@@ -53,13 +54,13 @@ export default function LogOut() {
     },
     withCredentials: true,
     url:"/login"
-}).then((res) => console.log(res))
-.then((res) => res.redirect('/dashboard'));
+}).then((res) => setLoggedin(true))
 }
 
-
+// history.push('/dashboard/')
 return (
   <Card className={classes.root}>
+    {loggedin ? <Redirect to={{pathname:"/dashboard"}}/> : null}
     <CardContent>
       <Typography className={classes.title} color="textSecondary">
         Welcome back to Achieve 2 Believe!!! Login to check in on your goals!
@@ -97,3 +98,5 @@ return (
 
 
     }
+
+    export default Login;

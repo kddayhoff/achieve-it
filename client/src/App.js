@@ -5,7 +5,7 @@ import Navbar from "./components/Layouts/Navbar";
 import Dashboard from "./components/Pages/Dashboard";
 import Login from "./components/Pages/Login";
 import Signup from "./components/Signup";
-import { HashRouter as Router, Route} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App(){
 
@@ -17,9 +17,11 @@ function App(){
               
                 <CssBaseline />
                 <Navbar/>
-                    <Route exact path="/Dashboard" component={Dashboard} />
+                <Switch>
+                    <Route  path="/dashboard/" component={Dashboard} />
                     <Route exact path="/Signup" component={Signup} />
                     <Route exact path="/" component={Login}/> 
+                </Switch>
                 <Footer/>
         
             </Router>

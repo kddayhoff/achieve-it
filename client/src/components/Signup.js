@@ -44,7 +44,7 @@ export default function Signup() {
   const [signupUsername, setsignupUsername] = useState('');
   const [signupPassword, setsignupPassword] = useState('');
  
-  // const [data, setData] = useState(null);
+  
   const signup = () => {
       Axios({
           method: "POST",
@@ -58,17 +58,6 @@ export default function Signup() {
       
   };
   
-
-  // const getUser = () => {
-  //     Axios({
-  //         method: "GET",
-  //         withCredentials: true,
-  //         url:"/user"
-  //     }).then((res) => {
-  //         setData(res.data);
-  //         console.log(res)
-  //     });
-  // };
   return (
     <Card className={classes.root}>
       <CardContent>

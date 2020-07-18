@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ButtonAppBar() {
+export default function Navbar() {
   const classes = useStyles();
 
   return (
@@ -32,8 +32,10 @@ export default function ButtonAppBar() {
           <Typography variant="h6" className={classes.title}>
             <Link style={{ textDecoration: 'none' }} to ="/Dashboard"><Button className={classes.btns}>Achieve 2 Believe</Button></Link>
           </Typography>
+          <Link style={{ textDecoration: 'none' }} to="/">
+          <Button className={classes.btns}>Log In</Button></Link>
           <Link style={{ textDecoration: 'none' }} to="/logout">
-          <Button className={classes.btns}>Log Out </Button></Link>
+          <Button className={classes.btns}>Log Out</Button></Link>
         </Toolbar>
       </AppBar>
     </div>

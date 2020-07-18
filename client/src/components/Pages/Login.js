@@ -43,8 +43,8 @@ export default function LogOut() {
   const [loginUsername, setLoginUsername] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
 
-
   const login = () => { 
+    
     Axios({
     method: "POST",
     data: {
@@ -53,8 +53,11 @@ export default function LogOut() {
     },
     withCredentials: true,
     url:"/login"
-}).then((res) => console.log(res));};
-      
+}).then((res) => console.log(res))
+.then((res) => res.redirect('/dashboard'));
+}
+
+
 return (
   <Card className={classes.root}>
     <CardContent>

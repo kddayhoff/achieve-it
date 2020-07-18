@@ -43,9 +43,8 @@ export default function Signup() {
 
   const [signupUsername, setsignupUsername] = useState('');
   const [signupPassword, setsignupPassword] = useState('');
-  const [loginUsername, setLoginUsername] = useState('');
-  const [loginPassword, setLoginPassword] = useState('');
-  const [data, setData] = useState(null);
+ 
+  // const [data, setData] = useState(null);
   const signup = () => {
       Axios({
           method: "POST",
@@ -58,27 +57,18 @@ export default function Signup() {
       }).then((res) => console.log(res));
       
   };
-  const login = () => { 
-      Axios({
-      method: "POST",
-      data: {
-          username: loginUsername,
-          password: loginPassword
-      },
-      withCredentials: true,
-      url:"/login"
-  }).then((res) => console.log(res));};
+  
 
-  const getUser = () => {
-      Axios({
-          method: "GET",
-          withCredentials: true,
-          url:"/user"
-      }).then((res) => {
-          setData(res.data);
-          console.log(res)
-      });
-  };
+  // const getUser = () => {
+  //     Axios({
+  //         method: "GET",
+  //         withCredentials: true,
+  //         url:"/user"
+  //     }).then((res) => {
+  //         setData(res.data);
+  //         console.log(res)
+  //     });
+  // };
   return (
     <Card className={classes.root}>
       <CardContent>
@@ -108,35 +98,6 @@ export default function Signup() {
             <Button className= {classes.btns} onClick={signup}>Submit </Button>
         </Typography>
         </form>
-    
-        <Typography className={classes.title} color="textSecondary">
-          Login
-        </Typography>
-        <form>
-        <Typography variant="h5" component="h2">
-        <FormControl variant="outlined">
-        <InputLabel htmlFor="component-outlined">Username</InputLabel>
-        <OutlinedInput 
-        id="component-outlined" 
-         
-        onChange={(e) => setLoginUsername(e.target.value)} 
-        label="username" />
-      </FormControl>
-      <FormControl variant="outlined">
-        <InputLabel htmlFor="component-outlined">Password</InputLabel>
-        <OutlinedInput 
-        id="component-outlined" 
-        onChange={(e) => setLoginPassword(e.target.value)} label="password" />
-         
-      </FormControl>     
-      <Button className= {classes.btns} onClick={login}>Submit </Button>    
-        </Typography>
-        </form>
-        <div>
-                <h1>Get User</h1>
-                <Button className= {classes.btns} onClick={getUser}>Submit </Button>
-                {data ? <h1>hey there, {data.user}</h1> : null}
-            </div>
       </CardContent>
     </Card>
   );

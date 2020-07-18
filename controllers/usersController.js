@@ -51,7 +51,7 @@ module.exports = {
    }
   },
   
-  //allows a current user (who is already signed up) to login to view their goal dashboard
+  //allows a current user (who is already signed up) to login to view
   login: (req, res) => {
     console.log('POST to /login');
     console.log(req.user);
@@ -63,5 +63,10 @@ module.exports = {
         delete cleanUser.password;
       }
       res.json({ user: cleanUser });
+  },
+
+  logout: (req, res) => {
+    req.logout();
+    res.json({msg: "Logout Successful"})
   }
 };

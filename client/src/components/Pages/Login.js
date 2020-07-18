@@ -23,11 +23,12 @@ const useStyles = makeStyles({
     transform: 'scale(0.8)',
   },
   title: {
-    fontSize: 14,
+    fontSize: 22,
   },
   pos: {
     marginBottom: 12,
   },
+
   btns: {
     background: 'linear-gradient(45deg, #3f51b5 30%, #32408f 90%)',
     color: 'black',
@@ -58,7 +59,7 @@ return (
   <Card className={classes.root}>
     <CardContent>
       <Typography className={classes.title} color="textSecondary">
-        Login
+        Welcome back to Achieve 2 Believe!!! Login to check in on your goals!
       </Typography>
       <form>
       <Typography variant="h5" component="h2">
@@ -75,17 +76,17 @@ return (
       <OutlinedInput 
       id="component-outlined" 
       onChange={(e) => setLoginPassword(e.target.value)} label="password" />
-       
+      
     </FormControl>     
     <Button className= {classes.btns} onClick={login}>Submit </Button>    
       </Typography>
       </form>
+      <hr></hr>
       <div>
-            <Typography>
+          
               <div className={classes.body}>
-                Not already a member? <Link style={{textDecoration: 'none'}} to= "/Signup"><Button className={classes.btn}>Sign Up</Button></Link>
-              </div>
-            </Typography>
+                Not already a member? <Link style={{textDecoration: 'none'}} to= "/Signup"><Button className={classes.btns}>Sign Up</Button></Link>
+                </div>
           </div>
     </CardContent>
   </Card>

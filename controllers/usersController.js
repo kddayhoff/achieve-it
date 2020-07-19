@@ -54,7 +54,7 @@ module.exports = {
   //allows a current user (who is already signed up) to login to view
   login: (req, res) => {
     console.log('POST to /login');
-    console.log(req.user);
+    // console.log(req.user);
     
     const user = JSON.parse(JSON.stringify(req.user)); // hack
       const cleanUser = Object.assign({}, user);
@@ -63,6 +63,7 @@ module.exports = {
         delete cleanUser.password;
       }
       res.json({ user: cleanUser });
+      console.log("You are logged in!")
   },
 
   logout: (req, res) => {

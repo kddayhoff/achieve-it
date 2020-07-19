@@ -61,7 +61,7 @@ export default function Goal () {
                 task: postTask
             },
             withCredentials: true,
-            url: "/dashboard/:id"
+            url: "/dashboard"
         }).then((res) => console.log(res));
     }
 

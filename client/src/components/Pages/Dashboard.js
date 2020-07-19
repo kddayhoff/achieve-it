@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-// import Calendar from "../Calendar";
+import Calendar from "../Calendar";
 import { UserContext } from '../libs/UserContext';
 import Goal from "../Goal"
 const useStyles = makeStyles((theme) => ({
@@ -33,7 +33,7 @@ const classes = useStyles();
           <Paper className={classes.paper}>
                  
                 {/* the magnificent calendar */}
-                {/* <Calendar/> */}
+                <Calendar/>
           </Paper>
         </Grid>
 

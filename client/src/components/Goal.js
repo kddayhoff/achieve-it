@@ -54,10 +54,7 @@ export default function Goal () {
     const [postGoal, setGoal] = useState('');
     const [postTask, setTask] = useState('');
     const [postDate, setDate] = useState('');
-
-    // state = {
-    //     task: ''
-    // }
+    const [taskList, setTaskList] = useState ('');
 
 
     const goal = () =>{
@@ -77,7 +74,7 @@ export default function Goal () {
     //    this.setState(())
     // }
 
-
+    
     return(
         <Card className={classes.root}>
       <CardContent>
@@ -91,7 +88,6 @@ export default function Goal () {
         <InputLabel htmlFor="component-outlined">goal</InputLabel>
         <OutlinedInput
           id="component-outlined"
-         
           onChange={(e) => setGoal(e.target.value)}
           label="goal"
         />
@@ -99,16 +95,34 @@ export default function Goal () {
         </Typography>
         </form> 
         <form>
-            <Typography>
-        <FormControl>
-           
-        <InputLabel htmlFor="component-outlined">task</InputLabel>
-        <OutlinedInput
-          id="component-outlined"
-         
-          onChange={(e) => setTask(e.target.value)}
-          label="task"
-        />
+        <Typography variant="h5" component="h2">
+        <FormControl variant="outlined">
+      <InputLabel htmlFor="component-outlined">task</InputLabel>
+       <OutlinedInput
+        id="component-outlined"
+        onChange={(e) => setTask(e.target.value)}
+        label="task"
+      />
+      </FormControl>
+      </Typography>
+      </form>
+    <form>
+      <Typography variant="h5" component="h2">
+      <FormControl variant= "outlined">
+      
+      <InputLabel htmlFor="component-outlined">task</InputLabel>
+      <OutlinedInput
+       id="component-outlined"
+       name="task"
+       onChange={(e) => setTask(e.target.value)}
+       label="task"
+   
+      />
+      </FormControl>
+      </Typography>
+    </form>
+      <FormControl>
+        {/* <div>{JSON.return(addTask)}</div> */}
       </FormControl>
      <br></br>
      <TextField
@@ -124,10 +138,9 @@ export default function Goal () {
       />
     
       <br></br>
-     {/* <Button className= {classes.btns} onClick={addTask}>Add Task</Button> */}
+        {/* <Button className= {classes.btns} onClick={addTask}>Add Task</Button> */}
         <Button className= {classes.btns} onClick={goal}>Set Goal</Button>
-        </Typography>
-        </form>
+      
         </div>
 
 

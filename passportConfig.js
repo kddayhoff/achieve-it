@@ -17,8 +17,8 @@ passport.deserializeUser((id,cb) => {
 module.exports = function (passport) {
   passport.use(
     new localStrategy((username, password, done) => {
-      User.findOne({ username: username }, (err, user) => {
-        if (err) throw err;
+      User.findOne({ username: username }).populate("goals")
+      .then(user => {
         if (!user) return done(null, false);
         bcrypt.compare(password, user.password, (err, result) => {
           if (err) throw err;
@@ -28,8 +28,13 @@ module.exports = function (passport) {
             return done(null, false);
           }
         });
-      });
-    })
-  )}
+      })
+      .catch(err => {
+        if (err) throw err;
+      })
+      })
+      )
+    }
+  
 
 

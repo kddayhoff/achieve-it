@@ -6,18 +6,15 @@ const bcrypt = require("bcryptjs");
 module.exports = {
 
 // finds user by unique id and populates page with goals and tasks
-  findById: (req, res) => {
+  findGoals: (req, res) => {
     db.User
-      .findById(req.params.id)
+      .findById(req.user._id)
+      .select("goals")
       .populate("goals")
       // .populate("tasks")
       .then(dbModel => {
-        const user = {
-          _id: dbModel._id,
-          goals: dbModel.goals,
-          username: dbModel.username
-        }
-        res.json(user)})
+          
+        res.json(dbModel)})
       .catch(err => res.status(422).json(err));
   },
 

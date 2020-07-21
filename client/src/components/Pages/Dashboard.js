@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Calendar from "../Calendar";
 import { UserContext } from '../libs/UserContext';
-import Goal from "../Goal"
+import Goal from "../Goal";
+import Axios from 'axios';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -19,6 +21,22 @@ const useStyles = makeStyles((theme) => ({
 export default function Dashboard() {
  
 const classes = useStyles();
+
+const [goals, setGoals] = useState([]);
+
+const getGoals = () =>{
+  Axios({
+      method: "GET",
+      withCredentials: true,
+      url: "/dashboard/goals"
+  }).then((res) => {
+    console.log(res.data)
+    setGoals(res.data.goals)})
+  .catch( err =>  {
+    console.log(err)
+  })
+}
+useEffect(getGoals, [])
 
   return (
     <div className={classes.root}>
@@ -45,18 +63,13 @@ const classes = useStyles();
           <Paper className={classes.paper}>
                   <Goal/>
                   </Paper>
-          <Paper className={classes.paper}>
-                  grid area
-                </Paper>
-          <Paper className={classes.paper}>
-                  grid area
-                  </Paper>
-          <Paper className={classes.paper}>
-                  grid area
-                </Paper>
-          <Paper className={classes.paper}>
-                  grid area
-                  </Paper>
+                  ///////Map goal card instead prop down into goal card  - props.goal and props.task; in side goal card opening tag, 
+          {goals.map(goal => 
+          (<Paper className={classes.paper} key={goal._id}>
+                  {goal.goal} -
+                  {goal.task}
+                </Paper>))}
+          
         </Grid>
         </UserContext.Provider>       
       </Grid>

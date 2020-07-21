@@ -9,8 +9,8 @@ const goalsController = require("../controllers/goalsController");
 
 
 //Allows a user to get their info (goals and tasks), .post will allow users to create a goal that pushes to their unique user id, delete should allow a user to delete a specific goal, unable to delete specific tasks at the moment
-// router.route("/dashboard/:id")
-//   .get(usersController.findById);
+router.route("/dashboard/goals")
+  .get(usersController.findGoals);
   //client side needs to pass user ID to get dashboard
   router.route('/dashboard')
   .get(passport.authenticate('local', { failureRedirect: "/" }), function (req, res) {

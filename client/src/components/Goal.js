@@ -7,9 +7,10 @@ import Typography from '@material-ui/core/Typography';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
+import TextField from '@material-ui/core/TextField';
 import Axios from 'axios';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) =>({
     root: {
       minWidth: 275,
       justifyContent: 'center'
@@ -38,8 +39,13 @@ const useStyles = makeStyles({
     },
     body: {
         justifyContent: 'center'
-    }
-  });
+    },
+    textField: {
+      marginLeft: theme.spacing(1),
+      marginRight: theme.spacing(1),
+      width: 200,
+    },
+  }))
 
 
 export default function Goal () {
@@ -47,7 +53,8 @@ export default function Goal () {
 
     const [postGoal, setGoal] = useState('');
     const [postTask, setTask] = useState('');
-    
+    const [postDate, setDate] = useState('');
+
     // state = {
     //     task: ''
     // }
@@ -58,7 +65,8 @@ export default function Goal () {
             method: "POST",
             data:{
                 goal: postGoal,
-                task: postTask
+                task: postTask,
+                date: postDate
             },
             withCredentials: true,
             url: "/dashboard"
@@ -103,6 +111,19 @@ export default function Goal () {
         />
       </FormControl>
      <br></br>
+     <TextField
+        id="datetime-local"
+        label="goal date"
+        type="datetime-local"
+        defaultValue="2020-09-24T10:30"
+        className={classes.textField}
+        onChange={(e) => setDate(e.target.value)}
+        InputLabelProps={{
+          shrink: true,
+        }}
+      />
+    
+      <br></br>
      {/* <Button className= {classes.btns} onClick={addTask}>Add Task</Button> */}
         <Button className= {classes.btns} onClick={goal}>Set Goal</Button>
         </Typography>

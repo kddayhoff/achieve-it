@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
-import { Link, useHistory, Redirect} from "react-router-dom";
+import { Link, Redirect} from "react-router-dom";
 import Axios from 'axios';
 // import Signup from '../Signup';
 
@@ -42,7 +42,7 @@ function Login() {
   const classes= useStyles();
   const [loginUsername, setLoginUsername] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
-  // let history = useHistory();
+
   const [loggedin, setLoggedin] = useState(false); 
   const login = () => { 
     
@@ -57,7 +57,6 @@ function Login() {
 }).then((res) => setLoggedin(true))
 }
 
-// history.push('/dashboard/')
 return (
   <Card className={classes.root}>
     {loggedin ? <Redirect to={{pathname:"/dashboard"}}/> : null}

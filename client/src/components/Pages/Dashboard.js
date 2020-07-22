@@ -63,11 +63,13 @@ useEffect(getGoals, [])
           <Paper className={classes.paper}>
                   <Goal/>
                   </Paper>
-                  ///////Map goal card instead prop down into goal card  - props.goal and props.task; in side goal card opening tag, 
+                  {///////Map goal card instead prop down into goal card  - props.goal and props.task; in side goal card opening tag, 
+                  }
           {goals.map(goal => 
           (<Paper className={classes.paper} key={goal._id}>
                   {goal.goal} -
                   {goal.task}
+                  {goal.date}
                 </Paper>))}
           
         </Grid>

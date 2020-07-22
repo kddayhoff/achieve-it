@@ -54,8 +54,6 @@ export default function Goal () {
     const [postGoal, setGoal] = useState('');
     const [postTask, setTask] = useState('');
     const [postDate, setDate] = useState('');
-    const [taskList, setTaskList] = useState ('');
-
 
     const goal = () =>{
         Axios({
@@ -69,10 +67,6 @@ export default function Goal () {
             url: "/dashboard"
         }).then((res) => console.log(res));
     }
-
-    // const addTask = (e) =>{
-    //    this.setState(())
-    // }
 
     
     return(
@@ -106,25 +100,9 @@ export default function Goal () {
       </FormControl>
       </Typography>
       </form>
-    <form>
-      <Typography variant="h5" component="h2">
-      <FormControl variant= "outlined">
       
-      <InputLabel htmlFor="component-outlined">task</InputLabel>
-      <OutlinedInput
-       id="component-outlined"
-       name="task"
-       onChange={(e) => setTask(e.target.value)}
-       label="task"
-   
-      />
-      </FormControl>
-      </Typography>
-    </form>
-      <FormControl>
-        {/* <div>{JSON.return(addTask)}</div> */}
-      </FormControl>
      <br></br>
+  
      <TextField
         id="datetime-local"
         label="goal date"
@@ -136,9 +114,9 @@ export default function Goal () {
           shrink: true,
         }}
       />
-    
+  
       <br></br>
-        {/* <Button className= {classes.btns} onClick={addTask}>Add Task</Button> */}
+      
         <Button className= {classes.btns} onClick={goal}>Set Goal</Button>
       
         </div>

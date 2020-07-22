@@ -63,12 +63,6 @@ module.exports = {
       console.log("You are logged in!")
   },
 
-//   logout: (req, res) => {
-//     req.logout();
-//     res.json({msg: "Logout Successful"})
-//   }
-// };
-
   logout: (req, res) => {
     req.logOut();
     req.session.destroy(function (err) {

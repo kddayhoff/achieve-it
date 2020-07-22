@@ -64,7 +64,9 @@ module.exports = {
   },
 
   logout: (req, res) => {
-    req.logout();
-    res.json({msg: "Logout Successful"})
-  }
-};
+    req.logOut();
+    req.session.destroy(function (err) {
+      res.redirect("/");
+    });
+    res.json({msg: "Logout Successful"});
+  }};

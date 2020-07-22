@@ -44,7 +44,7 @@ router.route("/login")
 
 // Route for logging user out --- routing to the page to the homepage after logout happens with react State
 router.route("/logout")
-.get(usersController.logout)
+.get(usersController.logout);
 
 
 module.exports = router;

@@ -35,7 +35,7 @@ router.route("/user")
 
 //this will allow a new user to register their info//email and password that is then hashed/encrypted
 router.route("/signup")
-.post(passport.authenticate("local"), usersController.signup);
+.post(usersController.signup);
 
 
 //allows a user to login --- routing the page to the dashboard after login happens on the react side in State

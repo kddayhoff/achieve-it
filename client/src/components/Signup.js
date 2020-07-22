@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
+import { Redirect } from "react-router-dom";
 import Axios from 'axios';
 
 const useStyles = makeStyles({
@@ -43,7 +44,7 @@ export default function Signup() {
 
   const [signupUsername, setsignupUsername] = useState('');
   const [signupPassword, setsignupPassword] = useState('');
- 
+  const [signedIn, setSignedin] = useState(false);
   
   const signup = () => {
       Axios({
@@ -54,12 +55,13 @@ export default function Signup() {
           },
           withCredentials: true,
           url:"/signup"
-      }).then((res) => console.log(res));
+      }).then((res) => setSignedin(true));
       
   };
   
   return (
     <Card className={classes.root}>
+      {signedIn ? <Redirect to={{pathname:"/"}}/> : null}
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
           Signup

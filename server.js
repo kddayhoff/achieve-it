@@ -34,6 +34,9 @@ app.use(session({
   secret: "secretcode", 
   resave: true, 
   saveUninitialized: true,
+  cookie: {
+    secure: true
+  }
   }));
   
   app.use( (req, res, next) => {
@@ -49,7 +52,7 @@ app.use(cookieParser("secretcode"));
 require("./passportConfig")(passport);
 
 app.use(routes);
-
+app.enable('trust proxy');
 
 //Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/achieve2believe", 

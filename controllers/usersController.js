@@ -60,7 +60,7 @@ module.exports = {
         delete cleanUser.password;
       }
       res.json({ user: cleanUser });
-      console.log("You are logged in!")
+      console.log("You are logged in!");
   },
 
   logout: (req, res) => {

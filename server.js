@@ -9,12 +9,11 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 3002;
 const app = express();
-
+require("./passportConfig")(passport);
 require('dotenv').config();
 
 // Define middleware here
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors({
@@ -29,36 +28,31 @@ if (process.env.NODE_ENV === "production") {
 
 
 // We need to use sessions to keep track of our user's login status
-
+app.use(cookieParser("secretcode"));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(session({ 
   secret: "secretcode", 
-  resave: true, 
-  saveUninitialized: true,
-  cookie: {
-    secure: true
-  }
+  resave: false, 
+  saveUninitialized: false
   }));
-  
+ app.use(passport.initialize());
+ app.use(passport.session());
+ 
   app.use( (req, res, next) => {
     console.log('req.session', req.session);
     return next();
   });
   
-
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(cookieParser("secretcode"));
-
-require("./passportConfig")(passport);
-
 app.use(routes);
-app.enable('trust proxy');
+// app.enable('trust proxy');
 
 //Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/achieve2believe", 
 {
   useNewUrlParser: true,
-  useFindAndModify: false
+  useFindAndModify: false,
+  autoIndex: false
 },
 () => {
   console.log ('Mongoose is Connected!!');

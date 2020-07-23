@@ -24,5 +24,3 @@ class UserContextProvider extends Component {
 }
  
 export default UserContextProvider; 
-
-

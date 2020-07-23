@@ -59,7 +59,7 @@ function Login() {
 
 return (
   <Card className={classes.root}>
-    {loggedin ? <Redirect to={{pathname:"/dashboard"}}/> : null}
+    {loggedin ? <Redirect to={{pathname:"/dashboard/goals"}}/> : null}
     <CardContent>
       <Typography className={classes.title} color="textSecondary">
         Welcome back to Achieve 2 Believe!!! Login to check in on your goals!

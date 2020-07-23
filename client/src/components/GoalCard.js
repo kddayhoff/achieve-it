@@ -42,12 +42,12 @@ const [goalData, setGoalData] = useState("")
         </Typography>
         
         <Typography variant="body2" component="p">
-          Goal task here {props.task}
+         {props.task}
           <br />
       
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-         date and time to complete goal {props.date}
+         {props.date}
         </Typography>
       </CardContent>
       <CardActions>

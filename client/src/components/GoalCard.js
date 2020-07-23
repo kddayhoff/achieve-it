@@ -31,13 +31,14 @@ const useStyles = makeStyles({
 
 export default function GoalCard(props) {
   const classes = useStyles();
+
 const [goalData, setGoalData] = useState("")
   return (
     <Card className={classes.root} variant="outlined">
       <CardContent>
        
         <Typography variant="h5" component="h2">
-          Goal title here {props.goal}
+         {props.goal}
         </Typography>
         
         <Typography variant="body2" component="p">

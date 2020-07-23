@@ -69,10 +69,10 @@ useEffect(getGoals, [])
                   }
           {goals.map(goal => 
           (<GoalCard className={classes.paper} 
-              key={goal._id}>
-                  {goal.goal} -
-                  {goal.task}
-                  {goal.date}
+              key={goal._id}
+              goal={goal.goal}
+               task={goal.task}
+                date={goal.date}>
                 </GoalCard>))}
           
         </Grid>

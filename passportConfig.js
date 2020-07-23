@@ -5,7 +5,7 @@ const passport = require("passport");
 
 passport.serializeUser((user, cb) => {
     cb(null, user.id);
-})
+});
 passport.deserializeUser((id,cb) => {
     User.findOne({_id: id}, (err, user) => {
         cb(err, user);
@@ -29,7 +29,7 @@ module.exports = function (passport) {
       })
       .catch(err => {
         if (err) throw err;
+      });
       })
-      })
-      )
-    }
+      );
+    };

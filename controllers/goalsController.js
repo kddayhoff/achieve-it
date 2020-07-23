@@ -31,9 +31,11 @@ module.exports = {
 
   //finds a specific goal that the user can delete
   delete: (req, res) => {
-    db.Goal.findByIdAndDelete(req.params.id)
+    db.Goal
+      .findByIdAndDelete(req.params.id )
+     
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  }, 
 
-      .then((dbModel) => res.json(dbModel))
-      .catch((err) => res.status(422).json(err));
-  },
 };

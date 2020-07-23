@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(cors({
   origin: "http://localhost:3000" ||"http//localhost:3002",
   credentials: true
-}))
+}));
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {

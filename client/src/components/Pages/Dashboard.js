@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Calendar from "../Calendar";
 import { UserContext } from '../libs/UserContext';
 import Goal from "../Goal";
+import GoalCard from "../GoalCard";
 import Axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
@@ -61,16 +62,18 @@ useEffect(getGoals, [])
                   Goal Stuff || information
                   </Paper>
           <Paper className={classes.paper}>
-                  <Goal/>
+                  <Goal getGoals={getGoals}/>
+      
                   </Paper>
                   {///////Map goal card instead prop down into goal card  - props.goal and props.task; in side goal card opening tag, 
                   }
           {goals.map(goal => 
-          (<Paper className={classes.paper} key={goal._id}>
+          (<GoalCard className={classes.paper} 
+              key={goal._id}>
                   {goal.goal} -
                   {goal.task}
                   {goal.date}
-                </Paper>))}
+                </GoalCard>))}
           
         </Grid>
         </UserContext.Provider>       

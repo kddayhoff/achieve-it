@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) =>({
   }))
 
 
-export default function Goal () {
+export default function Goal (props) {
     const classes = useStyles();
 
     const [postGoal, setGoal] = useState('');
@@ -65,7 +65,7 @@ export default function Goal () {
             },
             withCredentials: true,
             url: "/dashboard"
-        }).then((res) => console.log(res));
+        }).then((res) => props.getGoals())
     }
 
     

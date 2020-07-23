@@ -50,7 +50,7 @@ module.exports = {
   
   //allows a current user (who is already signed up) to login to view
   login: (req, res) => {
-    console.log('POST to /login');
+    console.log("POST route /login");
     // console.log(req.user);
     
     const user = JSON.parse(JSON.stringify(req.user)); // hack
@@ -65,7 +65,10 @@ module.exports = {
 
   logout: (req, res) => {
     req.logOut();
-    req.session.destroy(function (err) {
+    req.session.destroy(err => {
+      if (err) {
+        return res.redirect("/login")
+      }
       res.redirect("/");
     });
     res.json({msg: "Logout Successful"});

@@ -1,7 +1,3 @@
-
-// prop.goals
-// goal, task, date as props
-
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";

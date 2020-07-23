@@ -69,7 +69,6 @@ module.exports = {
       if (err) {
         return res.redirect("/login")
       }
-      res.clearCookie(SESS_NAME);
       res.redirect("/");
     });
     res.json({msg: "Logout Successful"});

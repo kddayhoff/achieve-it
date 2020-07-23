@@ -1,3 +1,4 @@
+
 // prop.goals
 // goal, task, date as props
 
@@ -13,6 +14,7 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
+
 const useStyles = makeStyles({
   root: {
     minWidth: 275,

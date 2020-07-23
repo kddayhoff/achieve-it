@@ -61,7 +61,7 @@ useEffect(getGoals, [])
                   Goal Stuff || information
                   </Paper>
           <Paper className={classes.paper}>
-                  <Goal/>
+                  <Goal getGoals={getGoals}/>
                   </Paper>
                   {///////Map goal card instead prop down into goal card  - props.goal and props.task; in side goal card opening tag, 
                   }

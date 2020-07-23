@@ -51,7 +51,8 @@ app.use(routes);
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/achieve2believe", 
 {
   useNewUrlParser: true,
-  useFindAndModify: false
+  useFindAndModify: false,
+  autoIndex: false
 },
 () => {
   console.log ('Mongoose is Connected!!');

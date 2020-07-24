@@ -38,7 +38,7 @@ export default class CalApp extends React.Component {
 						selectMirror={true}
 						dayMaxEvents={true}
 						weekends={this.state.weekendsVisible}
-						initialEvents={INITIAL_EVENTS} // alternatively, use the `events` setting to fetch from a feed
+						initialEvents={this.state.event} // alternatively, use the `events` setting to fetch from a feed
 						events={this.state.event}
 						select={this.handleDateSelect}
 						eventContent={renderEventContent} // custom render function
@@ -53,14 +53,14 @@ export default class CalApp extends React.Component {
 	renderSidebar() {
 		return (
 			<div className='cal-app-sidebar'>
-				<div className='cal-app-sidebar-section'>
+				{/* <div className='cal-app-sidebar-section'>
 					<h2>Instructions</h2>
 					<ul>
 						<li>Select dates and you will be prompted to create a new event</li>
 						<li>Drag, drop, and resize events</li>
 						<li>Click an event to delete it</li>
 					</ul>
-				</div>
+				</div> */}
 				<div className='cal-app-sidebar-section'>
 					<label>
 						<input
@@ -95,7 +95,7 @@ export default class CalApp extends React.Component {
 				allDay: selectInfo.allDay,
 			});
 			axios
-				.post('/dashboard', title)
+				.post('/dashboard/goal', title)
 				.then((res) => {
 					console.log(res.data.goal);
 				})
@@ -116,9 +116,9 @@ export default class CalApp extends React.Component {
 		}
 	};
 
-	handleEvents = (events) => {
+	handleEvents = (event) => {
 		this.setState({
-			currentEvents: events,
+			currentEvents: event,
 		});
 	};
 }

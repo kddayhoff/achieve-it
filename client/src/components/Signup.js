@@ -8,6 +8,8 @@ import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import { Redirect } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import {Visibility} from "@material-ui/icons";
 import Axios from 'axios';
 
 const useStyles = makeStyles({
@@ -15,37 +17,41 @@ const useStyles = makeStyles({
     minWidth: 275,
     justifyContent: 'center'
   },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
   title: {
     fontSize: 20,
     fontweight: 'bold',
     fontsyle: 'italic'
   },
-  pos: {
-    marginBottom: 12,
-  },
   btns: {
     background: 'linear-gradient(45deg, #3f51b5 30%, #32408f 90%)',
     color: 'black',
-    height: 48,
-    padding: '0 8px',
-    fontSize: 18,
-    
+    height: 35,
+    fontSize: 20
+  },
+  images:{
+    flexDirection:'column'
+  },
+  body: {
+    paddingTop: 20,
+  },
+  form: {
+    padding: 20,
+    paddingRight:0,
   }
 });
 
 export default function Signup() {
 
   const classes = useStyles();
-
+  const { register, handleSubmit } = useForm();
   const [signupUsername, setsignupUsername] = useState('');
   const [signupPassword, setsignupPassword] = useState('');
   const [signedIn, setSignedin] = useState(false);
+  const [passwordShown, setPasswordShown] = useState(false);
   
+  const togglePasswordVisiblity = () => {
+    setPasswordShown(passwordShown ? false : true);
+  };
   const signup = () => {
       Axios({
           method: "POST",
@@ -72,7 +78,7 @@ export default function Signup() {
         <InputLabel htmlFor="component-outlined">Username</InputLabel>
         <OutlinedInput
           id="component-outlined"
-         
+          ref={register({ required: "This is required." })}
           onChange={(e) => setsignupUsername(e.target.value)}
           label="username"
         />
@@ -81,11 +87,13 @@ export default function Signup() {
         <InputLabel htmlFor="component-outlined">Password</InputLabel>
         <OutlinedInput
           id="component-outlined"
-         
+          type={passwordShown ? "text" : "password"}
           onChange={(e) => setsignupPassword(e.target.value)}
           label="password"
+          ref={register({ required: "This is required." })}
         />
       </FormControl>
+      <Visibility className="togglePassword" onClick={togglePasswordVisiblity}/>
             <Button className= {classes.btns} onClick={signup}>Submit </Button>
         </Typography>
         </form>

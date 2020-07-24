@@ -8,7 +8,7 @@ import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import { Link, Redirect} from "react-router-dom";
-import {Visibility, VisibilityOff} from "@material-ui/icons";
+import {Visibility} from "@material-ui/icons";
 import Axios from 'axios';
 import "./login.css"
 import { useForm } from "react-hook-form";
@@ -17,7 +17,8 @@ import { useForm } from "react-hook-form";
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
-    textAlign:'center'
+    textAlign:'center',
+    justifyContent: 'center'
   },
   title: {
     fontSize: 22,
@@ -26,10 +27,19 @@ const useStyles = makeStyles({
   btns: {
     background: 'linear-gradient(45deg, #3f51b5 30%, #32408f 90%)',
     color: 'black',
-    height: 48,
-    padding: '0 8px',
-    fontSize: 18,
+    height: 35,
+    fontSize: 20
   },
+  images:{
+    flexDirection:'column'
+  },
+  body: {
+    paddingTop: 20,
+  },
+  form: {
+    padding: 20,
+    paddingRight:0,
+  }
 
 });
 
@@ -91,23 +101,19 @@ return (
           </OutlinedInput>
          
       </FormControl>
+     
       <Visibility className="togglePassword" onClick={togglePasswordVisiblity}/>
       </form>
-      <Button className= {classes.btns} onClick={login}>Submit </Button>  
-      
-      
-      
-      <hr></hr>
 
-      <div>
-          
+      <Button className= {classes.btns} onClick={login}>Submit </Button> 
+   
               <div className={classes.body}>
                 Not already a member? <Link 
                 style={{textDecoration: 'none'}} 
                 to= "/Signup">
                   <Button className={classes.btns}>Sign Up</Button></Link>
                 </div>
-        </div>
+     
      
       {/* <FormControl variant="outlined">
       <InputLabel htmlFor="component-outlined">Username</InputLabel>

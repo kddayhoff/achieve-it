@@ -3,9 +3,9 @@ const passportLocalMongoose = require('passport-local-mongoose');
 const Schema = mongoose.Schema;
 
 const goalSchema = new Schema({
-  goal: { type: String, required: true },
+  title: { type: String, required: true },
   task: String,
-  date: { type: Date, default: Date.now }
+  start: { type: Date, default: Date.now }
 });
 
 goalSchema.plugin(passportLocalMongoose);

@@ -79,6 +79,7 @@ export default function Signup() {
         <FormControl variant="outlined">
         <InputLabel htmlFor="component-outlined">Username</InputLabel>
         <OutlinedInput
+        name="username"
           id="component-outlined"
           ref={register({ required: "This is required." })}
           onChange={(e) => setsignupUsername(e.target.value)}
@@ -88,6 +89,7 @@ export default function Signup() {
       <FormControl variant="outlined">
         <InputLabel htmlFor="component-outlined">Password</InputLabel>
         <OutlinedInput
+        name="password"
           id="component-outlined"
           type={passwordShown ? "text" : "password"}
           onChange={(e) => setsignupPassword(e.target.value)}

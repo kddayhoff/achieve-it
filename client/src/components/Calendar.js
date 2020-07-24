@@ -1,5 +1,5 @@
 import React from 'react';
-import FullCalendar, { formatDate } from '@fullcalendar/react';
+import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
@@ -95,7 +95,7 @@ export default class CalApp extends React.Component {
 				allDay: selectInfo.allDay,
 			});
 			axios
-				.post('/dashboard/goal', title)
+				.post('/dashboard/goals', title)
 				.then((res) => {
 					console.log(res.data.goal);
 				})
@@ -106,14 +106,21 @@ export default class CalApp extends React.Component {
 		}
 	};
 
-	handleEventClick = (clickInfo) => {
+	handleEventClick = (clickInfo, res) => {
+    const {id} = clickInfo.event._def.extendedProps._id
+    console.log(clickInfo.event._def.extendedProps._id);
 		if (
 			window.confirm(
 				`Are you sure you want to delete the event '${clickInfo.event.title}'`
 			)
 		) {
-			clickInfo.event.remove();
-		}
+      clickInfo.event.remove();
+      axios.delete('/dashboard/goals', {
+      params: {id}})
+      .then((res) => {
+        console.log(res.data.goal);
+      })}
+		
 	};
 
 	handleEvents = (event) => {

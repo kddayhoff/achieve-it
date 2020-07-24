@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -9,7 +9,8 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
+import Moment from 'react-moment';
+// import FormLabel from '@material-ui/core/FormLabel';
 
 const useStyles = makeStyles({
 	root: {
@@ -31,7 +32,9 @@ const useStyles = makeStyles({
 export default function GoalCard(props) {
 	const classes = useStyles();
 
-	const [goalData, setGoalData] = useState('');
+
+
+	// const [goalData, setGoalData] = useState('');
 	return (
 		<Card className={classes.root} variant='outlined'>
 			<CardContent>
@@ -44,7 +47,7 @@ export default function GoalCard(props) {
 					<br />
 				</Typography>
 				<Typography className={classes.pos} color='textSecondary'>
-					{props.start}
+					<Moment>{props.start}</Moment>
 				</Typography>
 			</CardContent>
 			<CardActions>
@@ -53,7 +56,9 @@ export default function GoalCard(props) {
 					<FormGroup aria-label='position' row>
 						<FormControlLabel
 							value='end'
-							control={<Checkbox color='primary' />}
+							control={<Checkbox 
+								color='primary'/>}
+								// onChange={this.handleChange} />}
 							label='Goal Achieved'
 							labelPlacement='end'
 						/>

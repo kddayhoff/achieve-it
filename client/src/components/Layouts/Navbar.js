@@ -9,18 +9,25 @@ import { Link } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    
+  },
+  nav: {
+    background: 'linear-gradient(45deg, #3f51b5 10%, #32408f 90%)',
   },
   title: {
     flexGrow: 1,
   },
   btns: {
-    background: 'linear-gradient(45deg, #3f51b5 30%, #32408f 90%)',
+    background: 'linear-gradient(45deg, #3f51b5 10%, #32408f 90%)',
     color: 'black',
-    height: 48,
-    padding: '0 8px',
-    fontSize: 18,
+    height: 35,
+    fontSize: 20
   },
+  btn1:{
+    background: 'linear-gradient(45deg, #32408f 10%,  #3f51b5 90%)',
+    color: 'black',
+    height: 35,
+    fontSize: 20
+  }
 }));
 
 // const getUser = () => {
@@ -41,10 +48,10 @@ export default function Navbar() {
     
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar className={classes.nav} position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            <Link style={{ textDecoration: 'none' }} to ={"/dashboard"}><Button className={classes.btns}>Achieve 2 Believe</Button></Link>
+            <Link style={{ textDecoration: 'none' }} to ={"/dashboard"}><Button className={classes.btn1}>Achieve 2 Believe</Button></Link>
           </Typography>
           <Link style={{ textDecoration: 'none' }} to="/">
           <Button className={classes.btns}>Log In</Button></Link>

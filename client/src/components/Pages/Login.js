@@ -113,29 +113,6 @@ return (
                 to= "/Signup">
                   <Button className={classes.btns}>Sign Up</Button></Link>
                 </div>
-     
-     
-      {/* <FormControl variant="outlined">
-      <InputLabel htmlFor="component-outlined">Username</InputLabel>
-      <OutlinedInput 
-      id="component-outlined" 
-      ref={register({ required: "This is required." })}
-      onChange={(e) => setLoginUsername(e.target.value)} 
-      label="username" />
-    </FormControl> */}
-
-    {/* <FormControl variant="outlined">
-      <InputLabel htmlFor="component-outlined">Password</InputLabel>
-      <OutlinedInput 
-      id="component-outlined" type={this.state.hidden ? "password" : "text"}
-      ref={register({ required: "This is required." })}  
-      onChange={(e) => setLoginPassword(e.target.value)} 
-      type={passwordShown ? "text" : "password"}
-      label="password" /><i onClick={togglePasswordVisiblity}>{Visibility}</i>
-     <button onClick={this.toggleShow}>Show / Hide</button>
-    </FormControl>      */}
-     
-    
     </CardContent>
   </Card>
 );

@@ -13,9 +13,7 @@ export const INITIAL_EVENTS = [
     title: 'Timed event',
     start: todayStr + 'T12:00:00'
   }
-
 ]
-console.log(INITIAL_EVENTS)
 
 export function createEventId() {
   return String(eventID++)

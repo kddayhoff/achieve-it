@@ -59,9 +59,9 @@ export default function Goal (props) {
         Axios({
             method: "POST",
             data:{
-                goal: postGoal,
+                title: postGoal,
                 task: postTask,
-                date: postDate
+                start: postDate
             },
             withCredentials: true,
             url: "/dashboard"

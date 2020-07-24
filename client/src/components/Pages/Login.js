@@ -17,15 +17,11 @@ import { useForm } from "react-hook-form";
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    textAlign: 'center'
+    textAlign:'center'
   },
   title: {
     fontSize: 22,
-  },
-  pos: {
-    marginBottom: 12,
+    padding: 30,
   },
   btns: {
     background: 'linear-gradient(45deg, #3f51b5 30%, #32408f 90%)',
@@ -34,6 +30,7 @@ const useStyles = makeStyles({
     padding: '0 8px',
     fontSize: 18,
   },
+
 });
 
 function Login() {
@@ -69,30 +66,49 @@ return (
         Welcome back to Achieve 2 Believe!!! Login to check in on your goals!
       </Typography>
 
-      <form>
-      <input
+      <form className={classes.form}>
+      <FormControl variant="outlined">
+        <InputLabel htmlFor="component-outlined">username</InputLabel>
+        <OutlinedInput
         name="username"
         type="text"
-        placeholder="Username"
+        
         label="username"
         ref={register({ required: "This is required." })}
         onChange={(e) => setLoginUsername(e.target.value)}
-      />
+        />
+      </FormControl>
 
-      <div className="pass-wrapper">
-        <input
-          placeholder="Password"
+      <FormControl variant="outlined">
+        <InputLabel htmlFor="component-outlined">password</InputLabel>
+        <OutlinedInput
           name="password"
           type={passwordShown ? "text" : "password"}
           label="password"
           onChange={(e) => setLoginPassword(e.target.value)} 
-          ref={register({ required: "This is required." })}
-        />
-        <Visibility className="i" onClick={togglePasswordVisiblity}/>
-      </div>
+          ref={register({ required: "This is required." })}>
+        
+          </OutlinedInput>
+         
+      </FormControl>
+      <Visibility className="togglePassword" onClick={togglePasswordVisiblity}/>
+      </form>
       <Button className= {classes.btns} onClick={login}>Submit </Button>  
-   
-      <Typography variant="h5" component="h2">
+      
+      
+      
+      <hr></hr>
+
+      <div>
+          
+              <div className={classes.body}>
+                Not already a member? <Link 
+                style={{textDecoration: 'none'}} 
+                to= "/Signup">
+                  <Button className={classes.btns}>Sign Up</Button></Link>
+                </div>
+        </div>
+     
       {/* <FormControl variant="outlined">
       <InputLabel htmlFor="component-outlined">Username</InputLabel>
       <OutlinedInput 
@@ -113,20 +129,7 @@ return (
      <button onClick={this.toggleShow}>Show / Hide</button>
     </FormControl>      */}
      
-      </Typography>
-      </form>
-
-      <hr></hr>
-
-      <div>
-          
-              <div className={classes.body}>
-                Not already a member? <Link 
-                style={{textDecoration: 'none'}} 
-                to= "/Signup">
-                  <Button className={classes.btns}>Sign Up</Button></Link>
-                </div>
-        </div>
+    
     </CardContent>
   </Card>
 );

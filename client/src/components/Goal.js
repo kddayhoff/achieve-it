@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function refreshPage() {
-  window.location.reload(true);
+	window.location.reload(true);
 }
 
 export default function Goal(props) {
@@ -68,8 +68,6 @@ export default function Goal(props) {
 			withCredentials: true,
 			url: '/dashboard',
 		}).then((res) => props.getGoals());
-
-
 	};
 
 	return (
@@ -113,7 +111,7 @@ export default function Goal(props) {
 						id='datetime-local'
 						label='goal date'
 						type='datetime-local'
-						defaultValue='2020-09-24T10:30'
+						defaultValue={Date.now}
 						className={classes.textField}
 						onChange={(e) => setDate(e.target.value)}
 						InputLabelProps={{

@@ -3,7 +3,7 @@ import FullCalendar, { formatDate } from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import { INITIAL_EVENTS, createEventId } from './Events';
+import { createEventId } from './Events';
 import axios from 'axios';
 
 export default class CalApp extends React.Component {
@@ -131,4 +131,3 @@ function renderEventContent(eventInfo) {
 		</>
 	);
 }
-

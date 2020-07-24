@@ -44,8 +44,7 @@ const useStyles = makeStyles({
 });
 
 export default function Signup() {
-
-  const classes = useStyles();
+	const classes = useStyles();
   const { register, handleSubmit } = useForm();
   const [signupUsername, setsignupUsername] = useState('');
   const [signupPassword, setsignupPassword] = useState('');
@@ -97,10 +96,11 @@ export default function Signup() {
         />
       </FormControl>
       <Visibility className="togglePassword" onClick={togglePasswordVisiblity}/>
-            <Button className= {classes.btns} onClick={signup}>Submit </Button>
+            <Button className= {classes.btns} onClick={signup}>Submit{' '} </Button>
         </Typography>
         </form>
       </CardContent>
     </Card>
   );
 }
+

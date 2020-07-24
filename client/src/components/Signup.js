@@ -17,6 +17,9 @@ const useStyles = makeStyles({
     minWidth: 275,
     justifyContent: 'center'
   },
+  card: {
+    textAlign: 'center'
+  },
   title: {
     fontSize: 20,
     fontweight: 'bold',
@@ -68,7 +71,7 @@ export default function Signup() {
   return (
     <Card className={classes.root}>
       {signedIn ? <Redirect to={{pathname:"/"}}/> : null}
-      <CardContent>
+      <CardContent className={classes.card}>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
           Signup
         </Typography>

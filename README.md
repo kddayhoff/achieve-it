@@ -29,14 +29,11 @@
   <p><img align="left" src= "https://img.shields.io/badge/License-MIT-blue"></p><br>
   <hr>
   <div id="screen"><h2>Screenshots</h2></div>
-  <p><img src= ""><img src= ""><img src= ""></p>
+  <p><img src= "client/src/assets/front-page-a2b.PNG"><img src= "client/src/assets/dashboard-a2b-incomplete.PNG">
   <hr>
   <div id="contr"><h2>Contributors</h2> </div>
   <p>Annaruth McBride, Greg Clark, Karla Dayhoff, and Ryan Wilkinson</p> 
-  <hr>
-  <div id="tests"><h2>Tests</h2></div>
-  <p><img align="left" src=""></p>
-  <hr>
+ <hr>
   <div id="quest"><h2>Questions?</h2> </div>
   <img align="right" width="100" height="100" src="https://avatars3.githubusercontent.com/u/58277359?v=4">         
     Contact: Annaruth McBride       

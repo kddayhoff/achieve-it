@@ -82,7 +82,6 @@ return (
         <OutlinedInput
         name="username"
         type="text"
-        
         label="username"
         ref={register({ required: "This is required." })}
         onChange={(e) => setLoginUsername(e.target.value)}

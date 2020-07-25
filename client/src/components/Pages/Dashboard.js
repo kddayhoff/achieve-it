@@ -15,7 +15,9 @@ const useStyles = makeStyles((theme) => ({
 	paper: {
 		padding: theme.spacing(2),
 		textAlign: 'center',
+		fontSize: 22
 	},
+
 }));
 
 export default function Dashboard() {
@@ -58,7 +60,7 @@ export default function Dashboard() {
 
 					{/* Need to render the goal input inside the following grid item so it renders beside the calendar on the page */}
 					<Grid item xs={12} sm={6}>
-						<Paper className={classes.paper}>Goal Stuff || information</Paper>
+						<Paper className={classes.paper}>Your Goals</Paper>
 						<Paper className={classes.paper}>
 							<Goal getGoals={getGoals} />
 						</Paper>

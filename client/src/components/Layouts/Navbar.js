@@ -33,7 +33,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Navbar() {
   const classes = useStyles();
-  // const user = getUser();
 
   const [loggedOut, setLoggedOut] = useState(false);
 
@@ -43,7 +42,6 @@ export default function Navbar() {
       withCredentials: true,
       url: "/logout",
     }).then((res) => {
-      //  setData(res.data);
       setLoggedOut(true);
     });
   };

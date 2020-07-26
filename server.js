@@ -13,9 +13,9 @@ require("./passportConfig")(passport);
 require("dotenv").config();
 
 // Define middleware here
-app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 // app.use(
 // 	cors({
 // 		origin: 'http://localhost:3000' || 'http//localhost:3002',

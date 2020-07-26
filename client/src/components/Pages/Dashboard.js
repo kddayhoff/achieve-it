@@ -25,18 +25,18 @@ export default function Dashboard() {
   const [goals, setGoals] = useState([]);
 
   const getGoals = () => {
-    // Axios({
-    // 	method: 'GET',
-    // 	withCredentials: true,
-    // 	url: '/dashboard/goals',
-    // })
-    // 	.then((res) => {
-    // 		console.log(res.data);
-    // 		setGoals(res.data.goals);
-    // 	})
-    // 	.catch((err) => {
-    // 		console.log(err);
-    // 	});
+    Axios({
+      method: "GET",
+      withCredentials: true,
+      url: "/dashboard/goals",
+    })
+      .then((res) => {
+        console.log(res.data);
+        setGoals(res.data.goals);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   useEffect(getGoals, []);

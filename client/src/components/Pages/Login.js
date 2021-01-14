@@ -44,7 +44,7 @@ const useStyles = makeStyles({
 
 function Login() {
   const classes = useStyles();
-  const { register } = useForm();
+  // const { register } = useForm();
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [loggedin, setLoggedin] = useState(false);

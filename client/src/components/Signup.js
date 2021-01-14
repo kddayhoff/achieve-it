@@ -45,7 +45,7 @@ const useStyles = makeStyles({
 
 export default function Signup() {
   const classes = useStyles();
-  const { register } = useForm();
+  // const { register } = useForm();
   const [signupUsername, setsignupUsername] = useState("");
   const [signupPassword, setsignupPassword] = useState("");
   const [signedIn, setSignedin] = useState(false);

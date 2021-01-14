@@ -50,24 +50,24 @@ app.use((req, res, next) => {
 app.use(routes);
 // app.enable('trust proxy');
 
-//Connect to MongoDB
-mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/achieve2believe",
-  {
-    useNewUrlParser: true,
-    useFindAndModify: false,
-    autoIndex: false,
-  },
-  () => {
-    console.log("Mongoose is Connected!!");
-  }
-);
-
 // Send every other request to the React app
 // Define any API routes before this runs
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
+
+//Connect to MongoDB
+const dbCheck = mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/achieve2believe",
+  {
+    useNewUrlParser: true,
+    useFindAndModify: false,
+    autoIndex: false,
+  }
+).then(()=> console.log(dbCheck, "db is working"))
+.catch(err => console.log(err));
+
+
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port http://localhost:${PORT} !`);

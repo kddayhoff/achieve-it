@@ -7,8 +7,7 @@ const goalsController = require('../controllers/goalsController');
 router.route('/signup').post(usersController.signup);
 
 //allows a user to login --- routing the page to the dashboard after login happens on the react side in State
-router
-	.route('/login')
+router.route('/login')
 	.post(passport.authenticate('local'), usersController.login);
 
 //Allows a user to get their info (goals and tasks), , delete should allow a user to delete a specific goal, unable to delete specific tasks at the moment

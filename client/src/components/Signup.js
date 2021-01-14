@@ -63,7 +63,8 @@ export default function Signup() {
       },
       withCredentials: true,
       url: "/signup",
-    }).then((res) => setSignedin(true));
+    }).then((res) => setSignedin(true))
+    .catch(err => console.log(err));
   };
 
   return (

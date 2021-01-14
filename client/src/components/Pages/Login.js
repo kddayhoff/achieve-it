@@ -63,7 +63,8 @@ function Login() {
       },
       // withCredentials: true,
       url: "/login",
-    }).then((res) => setLoggedin(true));
+    }).then((res) => setLoggedin(true))
+    .catch(err => console.log(err));
   };
 
   return (

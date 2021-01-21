@@ -63,6 +63,8 @@ const dbCheck = mongoose.connect(
     useNewUrlParser: true,
     useFindAndModify: false,
     autoIndex: false,
+    useUnifiedTopology: true,
+    useCreateIndex: true
   }
 ).then(()=> console.log(dbCheck, "db is working"))
 .catch(err => console.log(err));
